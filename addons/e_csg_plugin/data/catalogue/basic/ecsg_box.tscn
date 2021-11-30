@@ -1,0 +1,46 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://addons/e_csg_plugin/core/ecsg_box.gd" type="Script" id=1]
+[ext_resource path="res://addons/e_csg_plugin/assets/textures/kenney_prototype/Light/texture_07.png" type="Texture" id=2]
+
+[sub_resource type="SpatialMaterial" id=1]
+flags_world_triplanar = true
+albedo_texture = ExtResource( 2 )
+uv1_triplanar = true
+
+[node name="ECSGBOX" type="CSGCombiner"]
+material_override = SubResource( 1 )
+use_collision = true
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CSGBox" type="CSGBox" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0 )
+width = 1.0
+height = 1.0
+depth = 1.0
+
+[node name="CutY" type="CSGBox" parent="CSGBox"]
+visible = false
+operation = 2
+width = 0.25
+height = 1.0
+depth = 0.25
+
+[node name="CutX" type="CSGBox" parent="CSGBox"]
+transform = Transform( -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0 )
+visible = false
+operation = 2
+width = 0.25
+height = 1.0
+depth = 0.25
+
+[node name="CutZ" type="CSGBox" parent="CSGBox"]
+transform = Transform( 1.91069e-15, -4.37114e-08, -1, -1, -4.37114e-08, 0, -4.37114e-08, 1, -4.37114e-08, 0, 0, 0 )
+visible = false
+operation = 2
+width = 0.25
+height = 1.0
+depth = 0.25

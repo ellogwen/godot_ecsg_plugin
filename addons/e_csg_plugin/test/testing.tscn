@@ -1,0 +1,141 @@
+[gd_scene load_steps=27 format=2]
+
+[ext_resource path="res://addons/e_csg_plugin/assets/textures/kenney_prototype/Orange/texture_01.png" type="Texture" id=1]
+[ext_resource path="res://addons/e_csg_plugin/assets/textures/kenney_prototype/Purple/texture_01.png" type="Texture" id=2]
+[ext_resource path="res://addons/e_csg_plugin/assets/textures/kenney_prototype/Red/texture_01.png" type="Texture" id=3]
+[ext_resource path="res://addons/e_csg_plugin/assets/textures/kenney_prototype/Green/texture_01.png" type="Texture" id=4]
+[ext_resource path="res://addons/e_csg_plugin/assets/textures/kenney_prototype/Dark/texture_13.png" type="Texture" id=5]
+[ext_resource path="res://addons/e_csg_plugin/data/catalogue/blocks/ecsg_toy_c.tscn" type="PackedScene" id=6]
+[ext_resource path="res://addons/e_csg_plugin/data/catalogue/blocks/ecsg_toy_l.tscn" type="PackedScene" id=7]
+[ext_resource path="res://addons/e_csg_plugin/data/catalogue/blocks/ecsg_toy_g.tscn" type="PackedScene" id=8]
+[ext_resource path="res://addons/e_csg_plugin/core/ecsg_stairs.gd" type="Script" id=9]
+[ext_resource path="res://addons/e_csg_plugin/data/catalogue/blocks/ecsg_toy_a.tscn" type="PackedScene" id=10]
+[ext_resource path="res://addons/e_csg_plugin/data/catalogue/blocks/ecsg_toy_b.tscn" type="PackedScene" id=11]
+[ext_resource path="res://addons/e_csg_plugin/data/catalogue/map/ecsg_stairs.tscn" type="PackedScene" id=12]
+[ext_resource path="res://addons/e_csg_plugin/data/catalogue/blocks/ecsg_toy_j.tscn" type="PackedScene" id=13]
+[ext_resource path="res://addons/e_csg_plugin/data/catalogue/map/ecsg_ramp.tscn" type="PackedScene" id=14]
+[ext_resource path="res://addons/e_csg_plugin/data/catalogue/basic/ecsg_box.tscn" type="PackedScene" id=15]
+[ext_resource path="res://addons/e_csg_plugin/core/ecsg_ramp.gd" type="Script" id=16]
+[ext_resource path="res://addons/e_csg_plugin/core/ecsg_object.gd" type="Script" id=17]
+[ext_resource path="res://addons/e_csg_plugin/core/ecsg_box.gd" type="Script" id=18]
+
+[sub_resource type="SpatialMaterial" id=2]
+flags_world_triplanar = true
+albedo_texture = ExtResource( 4 )
+uv1_triplanar = true
+
+[sub_resource type="SpatialMaterial" id=7]
+flags_world_triplanar = true
+albedo_texture = ExtResource( 2 )
+uv1_triplanar = true
+
+[sub_resource type="SpatialMaterial" id=12]
+albedo_color = Color( 0.160784, 0.678431, 1, 1 )
+
+[sub_resource type="SpatialMaterial" id=3]
+albedo_color = Color( 1, 0.92549, 0.152941, 1 )
+
+[sub_resource type="SpatialMaterial" id=8]
+flags_world_triplanar = true
+albedo_texture = ExtResource( 5 )
+uv1_triplanar = true
+
+[sub_resource type="SpatialMaterial" id=5]
+flags_world_triplanar = true
+albedo_texture = ExtResource( 3 )
+uv1_triplanar = true
+
+[sub_resource type="SpatialMaterial" id=6]
+flags_world_triplanar = true
+albedo_texture = ExtResource( 1 )
+uv1_triplanar = true
+
+[sub_resource type="SpatialMaterial" id=11]
+albedo_color = Color( 1, 0.639216, 0, 1 )
+
+[node name="Spatial" type="Spatial"]
+
+[node name="ECSGBOX" type="CSGCombiner" parent="." instance=ExtResource( 15 )]
+transform = Transform( 8, 0, 0, 0, 0.1, 0, 0, 0, 8, 0, 0, 0 )
+material_override = SubResource( 2 )
+use_collision = true
+script = ExtResource( 18 )
+__meta__ = {
+"_edit_group_": true
+}
+_ecsg_edt_theme = "Prototype"
+_ecsg_edt_prototype = "Green"
+
+[node name="ECSGPLTOY" type="CSGCombiner" parent="." instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.1, 0, 0 )
+material_override = SubResource( 7 )
+script = ExtResource( 17 )
+_ecsg_edt_theme = "Prototype"
+_ecsg_edt_prototype = "Purple"
+
+[node name="ECSGPLTOY2" type="CSGCombiner" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7, 1, 6.70552e-08 )
+material_override = SubResource( 12 )
+script = ExtResource( 17 )
+_ecsg_edt_theme = "Palette"
+_ecsg_edt_palette = "Light Blue"
+
+[node name="ECSGPLTOY3" type="CSGCombiner" parent="." instance=ExtResource( 13 )]
+material_override = SubResource( 3 )
+script = ExtResource( 17 )
+_ecsg_edt_theme = "Palette"
+_ecsg_edt_palette = "Yellow"
+
+[node name="ECSGPLTOY7" parent="." instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1, 0.5, 0 )
+material_override = SubResource( 8 )
+_ecsg_edt_prototype = "Dark"
+
+[node name="ECSGPLTOY4" type="CSGCombiner" parent="." instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3 )
+material_override = SubResource( 5 )
+script = ExtResource( 17 )
+_ecsg_edt_theme = "Prototype"
+_ecsg_edt_prototype = "Red"
+
+[node name="ECSGPLTOY5" type="CSGCombiner" parent="." instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2 )
+material_override = SubResource( 6 )
+script = ExtResource( 17 )
+_ecsg_edt_theme = "Prototype"
+_ecsg_edt_prototype = "Orange"
+
+[node name="ECSGPLTOY6" type="CSGCombiner" parent="." instance=ExtResource( 7 )]
+transform = Transform( 0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, 0.5, -1.31077, 0.2, 0.833013 )
+material_override = SubResource( 11 )
+script = ExtResource( 17 )
+_ecsg_edt_theme = "Palette"
+_ecsg_edt_palette = "Orange"
+
+[node name="ECSGRAMP" type="CSGCombiner" parent="." instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7, 0, 0.5 )
+material_override = SubResource( 2 )
+use_collision = true
+script = ExtResource( 16 )
+__meta__ = {
+"_edit_group_": true
+}
+HEIGHT = 1.5
+DEPTH = 2.25
+_ecsg_edt_theme = "Prototype"
+_ecsg_edt_prototype = "Green"
+
+[node name="ECSGSTAIRS" type="CSGCombiner" parent="." instance=ExtResource( 12 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8, 0, 2.1 )
+material_override = SubResource( 8 )
+use_collision = true
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_group_": true
+}
+STEPS = 8
+HEIGHT = 1.25
+WIDTH = 1.25
+DEPTH = 1.45
+_ecsg_edt_theme = "Prototype"
+_ecsg_edt_prototype = "Dark"

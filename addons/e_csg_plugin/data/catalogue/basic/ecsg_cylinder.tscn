@@ -1,0 +1,36 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://addons/e_csg_plugin/core/ecsg_cylinder.gd" type="Script" id=1]
+[ext_resource path="res://addons/e_csg_plugin/assets/textures/kenney_prototype/Light/texture_07.png" type="Texture" id=2]
+
+[sub_resource type="SpatialMaterial" id=1]
+flags_world_triplanar = true
+albedo_texture = ExtResource( 2 )
+uv1_triplanar = true
+
+[node name="ECSGCYLINDER" type="CSGCombiner"]
+material_override = SubResource( 1 )
+use_collision = true
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CSGCylinder" type="CSGCylinder" parent="."]
+transform = Transform( 1.00032, 0, 0, 0, 1.00032, 0, 0, 0, 1.00032, 0, 0.5, 0 )
+sides = 24
+smooth_faces = false
+
+[node name="Hole" type="CSGCylinder" parent="CSGCylinder"]
+visible = false
+operation = 2
+radius = 0.5
+height = 1.25
+sides = 24
+smooth_faces = false
+
+[node name="Flatter" type="CSGBox" parent="CSGCylinder"]
+transform = Transform( 0.999999, 0, 0, 0, 0.999999, 0, 0, 0, 0.999999, 0, 0.5, 0 )
+visible = false
+operation = 2
+height = 1.0

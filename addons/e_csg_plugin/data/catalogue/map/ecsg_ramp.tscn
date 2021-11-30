@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://addons/e_csg_plugin/core/ecsg_ramp.gd" type="Script" id=1]
+[ext_resource path="res://addons/e_csg_plugin/materials/prototype_green.tres" type="Material" id=2]
+
+[node name="ECSGRAMP" type="CSGCombiner"]
+material_override = ExtResource( 2 )
+use_collision = true
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CSGPolygon" type="CSGPolygon" parent="."]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.5, 0, 0 )
+polygon = PoolVector2Array( 0, 0, 0, 1, 1, 0 )

@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://addons/e_csg_plugin/core/ecsg_ngon.gd" type="Script" id=1]
+[ext_resource path="res://addons/e_csg_plugin/materials/prototype_green.tres" type="Material" id=2]
+
+[node name="ECSNGON" type="CSGCombiner"]
+material_override = ExtResource( 2 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CSGPolygon" type="CSGPolygon" parent="."]
+mode = 1
+spin_degrees = 360.0
+spin_sides = 6
+
+[node name="Cutter" type="CSGPolygon" parent="CSGPolygon"]
+transform = Transform( 0.8, 0, 0, 0, 1.2, 0, 0, 0, 0.8, 0, -0.1, 0 )
+visible = false
+operation = 2
+mode = 1
+spin_degrees = 360.0
+spin_sides = 6

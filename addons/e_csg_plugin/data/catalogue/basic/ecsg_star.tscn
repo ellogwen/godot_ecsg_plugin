@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://addons/e_csg_plugin/core/ecsg_star.gd" type="Script" id=1]
+[ext_resource path="res://addons/e_csg_plugin/materials/prototype_green.tres" type="Material" id=2]
+
+[node name="ECSGSTAR" type="CSGCombiner"]
+material_override = ExtResource( 2 )
+use_collision = true
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CSGPolygon" type="CSGPolygon" parent="."]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
+polygon = PoolVector2Array( -2.18557e-08, -0.5, 0.475528, -0.654508, 0.475528, -0.154509, 0.769421, 0.25, 0.293893, 0.404509, 0, 0.809017, -0.293893, 0.404509, -0.769421, 0.25, -0.475528, -0.154508, -0.475528, -0.654508 )
+
+[node name="Cutter" type="CSGPolygon" parent="CSGPolygon"]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 2, 0, 0, 0.5 )
+visible = false
+operation = 2
+polygon = PoolVector2Array( -2.18557e-08, -0.5, 0.475528, -0.654508, 0.475528, -0.154509, 0.769421, 0.25, 0.293893, 0.404509, 0, 0.809017, -0.293893, 0.404509, -0.769421, 0.25, -0.475528, -0.154508, -0.475528, -0.654508 )

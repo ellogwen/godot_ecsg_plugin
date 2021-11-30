@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://addons/e_csg_plugin/assets/textures/kenney_prototype/Light/texture_07.png" type="Texture" id=1]
+[ext_resource path="res://addons/e_csg_plugin/core/ecsg_halfpipe.gd" type="Script" id=2]
+
+[sub_resource type="SpatialMaterial" id=1]
+flags_world_triplanar = true
+albedo_texture = ExtResource( 1 )
+uv1_triplanar = true
+
+[node name="ECSGHALFPIPE" type="CSGCombiner"]
+material_override = SubResource( 1 )
+use_collision = true
+script = ExtResource( 2 )
+_ecsg_edt_theme = "Prototype"
+_ecsg_edt_prototype = "Light"
+
+[node name="CSGBox" type="CSGBox" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0 )
+width = 1.0
+height = 0.5
+depth = 1.0
+
+[node name="CSGCylinder" type="CSGCylinder" parent="CSGBox"]
+transform = Transform( -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, 0.3, 0 )
+operation = 2
+radius = 0.5
+sides = 24

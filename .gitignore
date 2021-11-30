@@ -1,0 +1,18 @@
+# godot-specific ignores
+.import/
+export.cfg
+export_presets.cfg
+/icon.png
+*.import
+project-icon.png
+project.godot
+.tmp
+/.import
+/default_env.tres
+
+# vscode
+.vscode
+
+# only include this addon
+/addons/*
+!/addons/e_csg_plugin

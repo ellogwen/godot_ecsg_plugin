@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://addons/e_csg_plugin/core/ecsg_cone.gd" type="Script" id=1]
+[ext_resource path="res://addons/e_csg_plugin/materials/prototype_green.tres" type="Material" id=2]
+
+[node name="ECSCONE" type="CSGCombiner"]
+material_override = ExtResource( 2 )
+use_collision = true
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CSGCylinder" type="CSGCylinder" parent="."]
+transform = Transform( 0.707333, 0, 0.707333, 0, 1.00032, 0, -0.707333, 0, 0.707333, 0, 0.5, 0 )
+sides = 4
+cone = true
+smooth_faces = false
+
+[node name="Flatter" type="CSGBox" parent="CSGCylinder"]
+transform = Transform( 0.999999, 0, 0, 0, 0.999999, 0, 0, 0, 0.999999, 0, 0.5, 0 )
+visible = false
+operation = 2
+height = 0.6

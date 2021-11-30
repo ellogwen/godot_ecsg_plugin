@@ -1,0 +1,43 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://addons/e_csg_plugin/core/ecsg_sphere.gd" type="Script" id=1]
+[ext_resource path="res://addons/e_csg_plugin/materials/prototype_green.tres" type="Material" id=2]
+
+[node name="ECSGSPHERE" type="CSGCombiner"]
+material_override = ExtResource( 2 )
+use_collision = true
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CSGSphere" type="CSGSphere" parent="."]
+calculate_tangents = false
+radius = 0.5
+radial_segments = 24
+rings = 12
+smooth_faces = false
+
+[node name="CutXZ" type="CSGBox" parent="CSGSphere"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0 )
+visible = false
+operation = 2
+width = 1.0
+height = 0.5
+depth = 1.0
+
+[node name="CutYZ" type="CSGBox" parent="CSGSphere"]
+transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0.25, 0, 0 )
+visible = false
+operation = 2
+width = 1.0
+height = 0.5
+depth = 1.0
+
+[node name="CutXY" type="CSGBox" parent="CSGSphere"]
+transform = Transform( 1.91069e-15, 4.37114e-08, -1, 1, -4.37114e-08, 0, -4.37114e-08, -1, -4.37114e-08, 0, 0, 0.25 )
+visible = false
+operation = 2
+width = 1.0
+height = 0.5
+depth = 1.0

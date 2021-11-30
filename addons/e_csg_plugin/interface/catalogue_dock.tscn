@@ -1,0 +1,45 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://addons/e_csg_plugin/interface/catalogue_dock.gd" type="Script" id=1]
+
+[node name="ECSG_Catalogue_Dock" type="VBoxContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+margin_right = 1024.0
+margin_bottom = 20.0
+
+[node name="CategoryOption" type="OptionButton" parent="HBoxContainer"]
+margin_right = 816.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.8
+text = "Map"
+items = [ "Map", null, false, 0, "map", "Blocks", null, false, 1, "blocks", "Basic", null, false, 2, "basic" ]
+selected = 0
+
+[node name="RefreshCategories" type="Button" parent="HBoxContainer"]
+margin_left = 820.0
+margin_right = 1024.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.2
+text = "Refresh"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+margin_top = 24.0
+margin_right = 1024.0
+margin_bottom = 600.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ItemList" type="VBoxContainer" parent="ScrollContainer"]
+margin_right = 1024.0
+margin_bottom = 576.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
