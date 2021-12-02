@@ -41,18 +41,59 @@ func _calc_polygon():
 	var step_size : float = DEPTH / STEPS
 	var step_height : float = HEIGHT / STEPS
 
-	points.push_back(Vector2(0.0, 0.0))
+	if BOTTOM_STYLE == "FILLED":
+		points.push_back(Vector2(0.0, 0.0))
 
-	for s in range(STEPS):
-		var z1 = s * (step_size)
-		var z2 = z1 + step_size
-		var y1 = HEIGHT - (s * step_height)
-		var y2 = y1 - step_height
+		for s in range(STEPS):
+			var z1 = s * (step_size)
+			var z2 = z1 + step_size
+			var y1 = HEIGHT - (s * step_height)
+			var y2 = y1 - step_height
 
-		if (s == 0):
-			points.push_back(Vector2(z1, y1))
+			if (s == 0):
+				points.push_back(Vector2(z1, y1))
 
-		points.push_back(Vector2(z2, y1))
-		points.push_back(Vector2(z2, y2))
+			points.push_back(Vector2(z2, y1))
+			points.push_back(Vector2(z2, y2))
+
+	elif BOTTOM_STYLE == "FLAT":
+		points.push_back(Vector2(0.0, HEIGHT - step_height))
+
+		for s in range(STEPS):
+			var z1 = s * (step_size)
+			var z2 = z1 + step_size
+			var y1 = HEIGHT - (s * step_height)
+			var y2 = y1 - step_height
+
+			if (s == 0):
+				points.push_back(Vector2(z1, y1))
+
+			points.push_back(Vector2(z2, y1))
+			points.push_back(Vector2(z2, y2))
+
+		points.push_back(Vector2((STEPS - 1) * step_size, 0.0))
+
+	elif BOTTOM_STYLE == "ZIGZAG":
+		for s in range(STEPS):
+			var z1 = s * (step_size)
+			var z2 = z1 + step_size
+			var y1 = HEIGHT - (s * step_height)
+			var y2 = y1 - step_height
+
+			if (s == 0):
+				points.push_back(Vector2(z1, y1))
+
+			points.push_back(Vector2(z2, y1))
+			points.push_back(Vector2(z2, y2))
+
+		for s in range(STEPS -2, -1, -1):
+			var z = s * (step_size)
+			var y1 = HEIGHT - ((s + 1) * step_height)
+			var y2 = y1 - step_height
+
+			points.push_back(Vector2(z, y2))
+			points.push_back(Vector2(z, y1))
+
+
 
 	$CSGPolygon.polygon = points
