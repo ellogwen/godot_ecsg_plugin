@@ -38,6 +38,6 @@ func calc_handle_value(to_axis: Vector3,
 			var g_intersection_pro = p_obj.project(g_intersection)
 			var g_newAxisPos = (g_intersection_pro - origin).project(to_axis)
 
-			return (g_newAxisPos).length()
+			return (g_newAxisPos)
 
 		return null

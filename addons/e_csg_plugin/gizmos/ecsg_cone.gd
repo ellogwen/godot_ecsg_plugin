@@ -67,7 +67,7 @@ func set_handle(gizmo, index, camera, screen_pos):
 			spatial.global_transform.origin
 		)
 		if val != null:
-			spatial.HEIGHT = val
+			spatial.HEIGHT = val.length()
 
 	# flatter
 	if index == 1:
@@ -88,4 +88,4 @@ func set_handle(gizmo, index, camera, screen_pos):
 			spatial.global_transform.origin
 		)
 		if val != null:
-			spatial.FLAT_TOP_OFFSET = val
+			spatial.FLAT_TOP_OFFSET = val.length()

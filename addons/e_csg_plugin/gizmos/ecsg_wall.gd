@@ -150,7 +150,7 @@ func set_handle(gizmo, index, camera, screen_pos):
 			spatial.global_transform.origin
 		)
 		if val != null:
-			spatial.LENGTH = val
+			spatial.LENGTH = val.length()
 
 	# width handler
 	if index == 2:
@@ -171,7 +171,7 @@ func set_handle(gizmo, index, camera, screen_pos):
 			spatial.global_transform.origin
 		)
 		if val != null:
-			spatial.WIDTH = val
+			spatial.WIDTH = val.length()
 
 	# segment height handler
 	if index > 2:
