@@ -49,20 +49,42 @@ func set_handle(gizmo, index, camera, screen_pos):
 
 	# height handle
 	if index == 0:
-		var toAxis = spatial.global_transform.basis.y
-		var handle_pos = get_handle_global_position(0, spatial)
-		var p = Plane(spatial.global_transform.basis.z, handle_pos.z)
-		var intersection = p.intersects_ray(camera.project_ray_origin(screen_pos), camera.project_ray_normal(screen_pos))
-		if intersection != null:
-			var newAxisPos = (intersection - handle_pos).project(toAxis) + handle_pos
-			spatial.HEIGHT = newAxisPos.y
+#		var toAxis = spatial.global_transform.basis.y
+#		var handle_pos = get_handle_global_position(0, spatial)
+#		var p = Plane(spatial.global_transform.basis.z, handle_pos.z)
+#		var intersection = p.intersects_ray(camera.project_ray_origin(screen_pos), camera.project_ray_normal(screen_pos))
+#		if intersection != null:
+#			var newAxisPos = (intersection - handle_pos).project(toAxis) + handle_pos
+#			spatial.HEIGHT = newAxisPos.y
+		var val = calc_handle_value(
+			spatial.transform.basis.y,
+			spatial.transform.basis.x,
+			spatial.transform.basis.z,
+			get_handle_global_position(0, spatial),
+			camera,
+			screen_pos,
+			spatial.global_transform.origin
+		)
+		if val != null:
+			spatial.HEIGHT = val
 
 	# inset
 	if index == 1:
-		var toAxis = spatial.global_transform.basis.z
-		var handle_pos = get_handle_global_position(1, spatial)
-		var p = Plane(spatial.global_transform.basis.y, handle_pos.y)
-		var intersection = p.intersects_ray(camera.project_ray_origin(screen_pos), camera.project_ray_normal(screen_pos))
-		if intersection != null:
-			var newAxisPos = (intersection - handle_pos).project(toAxis) + handle_pos
-			spatial.INSET = 1.0 - newAxisPos.z
+#		var toAxis = spatial.global_transform.basis.z
+#		var handle_pos = get_handle_global_position(1, spatial)
+#		var p = Plane(spatial.global_transform.basis.y, handle_pos.y)
+#		var intersection = p.intersects_ray(camera.project_ray_origin(screen_pos), camera.project_ray_normal(screen_pos))
+#		if intersection != null:
+#			var newAxisPos = (intersection - handle_pos).project(toAxis) + handle_pos
+#			spatial.INSET = 1.0 - newAxisPos.z
+		var val = calc_handle_value(
+			spatial.transform.basis.z,
+			spatial.transform.basis.y,
+			spatial.transform.basis.x,
+			get_handle_global_position(1, spatial),
+			camera,
+			screen_pos,
+			spatial.global_transform.origin
+		)
+		if val != null:
+			spatial.INSET = 1.0 - val
