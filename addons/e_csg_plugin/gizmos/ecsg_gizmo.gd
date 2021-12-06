@@ -29,6 +29,12 @@ func _init():
 	create_handle_material("handle_square_y", false, handle_square_y_tex)
 	create_handle_material("handle_square_z", false, handle_square_z_tex)
 
+func get_handle_local_position(index, spatial):
+	return Vector3.ZERO
+
+func get_handle_global_position(index, spatial):
+	return spatial.to_global(get_handle_local_position(index, spatial))
+
 func calc_handle_value(
 	to_axis: Vector3,
 	g_handle_pos: Vector3,
