@@ -6,7 +6,7 @@ func has_gizmo(spatial):
 	return is_ecsg_type(spatial, "ECSGTerrain")
 
 func _init():
-	create_handle_material("handle_a")
+	._init()
 
 func redraw(gizmo):
 	gizmo.clear()
@@ -18,7 +18,7 @@ func redraw(gizmo):
 	for face in spatial.get_plane_mesh().get_faces():
 		handles.push_back(face.get_centroid())
 
-	gizmo.add_handles(handles, get_material("handle_a", gizmo))
+	gizmo.add_handles(handles, get_material("handle_square_y", gizmo))
 
 func get_handle_local_position(index, spatial):
 	return spatial.get_plane_mesh().get_face(index).get_centroid()

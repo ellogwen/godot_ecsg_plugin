@@ -6,6 +6,7 @@ func has_gizmo(spatial):
 	return is_ecsg_type(spatial, "ECSGWall")
 
 func _init():
+	._init()
 	create_handle_material("handle_a")
 	create_material("plane", Color.orange)
 
@@ -21,15 +22,21 @@ func redraw(gizmo):
 	# length forward edit handle
 	handles.push_back(get_handle_local_position(1, spatial))
 
+	gizmo.add_handles(handles, get_material("handle_z"))
+
+
 	# width edit handle
+	handles = PoolVector3Array()
 	handles.push_back(get_handle_local_position(2, spatial))
+	gizmo.add_handles(handles, get_material("handle_x"))
 
 	# height edit handles
+	handles = PoolVector3Array()
 	var seg_length = spatial.LENGTH / spatial.SEGMENTS
 	for p in spatial.get_top_row_points():
 		handles.push_back(p)
 
-	gizmo.add_handles(handles, get_material("handle_a", gizmo))
+	gizmo.add_handles(handles, get_material("handle_square_y", gizmo))
 
 #	var handle_pos: Vector3 = get_handle_local_position(1, spatial)
 #	var stG = spatial.global_transform.origin

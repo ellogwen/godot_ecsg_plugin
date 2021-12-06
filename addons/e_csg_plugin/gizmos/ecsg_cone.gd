@@ -6,22 +6,23 @@ func has_gizmo(spatial):
 	return is_ecsg_type(spatial, "ECSGCone")
 
 func _init():
-	create_handle_material("handle_a")
+	._init()
 
 func redraw(gizmo):
 	gizmo.clear()
 	var spatial = gizmo.get_spatial_node()
 
-	var handles = PoolVector3Array()
 
 	# height edit handle
+	var handles = PoolVector3Array()
 	handles.push_back(get_handle_local_position(0, spatial))
+	gizmo.add_handles(handles, get_material("handle_y", gizmo))
 
 	# flatter edit handle
 	if (spatial.FLAT_TOP):
+		handles = PoolVector3Array()
 		handles.push_back(get_handle_local_position(1, spatial))
-
-	gizmo.add_handles(handles, get_material("handle_a", gizmo))
+		gizmo.add_handles(handles, get_material("handle_square", gizmo))
 
 func get_handle_local_position(index, spatial):
 	match (index):

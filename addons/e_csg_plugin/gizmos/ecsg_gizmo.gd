@@ -1,5 +1,14 @@
 extends EditorSpatialGizmoPlugin
 
+const handle_tex = preload("res://addons/e_csg_plugin/assets/textures/gizmos/handle_n.png")
+const handle_x_tex = preload("res://addons/e_csg_plugin/assets/textures/gizmos/handle_x.png")
+const handle_y_tex = preload("res://addons/e_csg_plugin/assets/textures/gizmos/handle_y.png")
+const handle_z_tex = preload("res://addons/e_csg_plugin/assets/textures/gizmos/handle_z.png")
+const handle_square_tex = preload("res://addons/e_csg_plugin/assets/textures/gizmos/handle_square.png")
+const handle_square_x_tex = preload("res://addons/e_csg_plugin/assets/textures/gizmos/handle_x_square.png")
+const handle_square_y_tex = preload("res://addons/e_csg_plugin/assets/textures/gizmos/handle_y_square.png")
+const handle_square_z_tex = preload("res://addons/e_csg_plugin/assets/textures/gizmos/handle_z_square.png")
+
 func get_name(): return "ECSG Object"
 
 func is_ecsg_type(spatial, ecsg_type):
@@ -9,6 +18,16 @@ func is_ecsg_type(spatial, ecsg_type):
 		and spatial.has_method("get_ecsg_type")
 		and spatial.get_ecsg_type() == ecsg_type
 	)
+
+func _init():
+	create_handle_material("default", false, handle_tex)
+	create_handle_material("handle_x", false, handle_x_tex)
+	create_handle_material("handle_y", false, handle_y_tex)
+	create_handle_material("handle_z", false, handle_z_tex)
+	create_handle_material("handle_square", false, handle_square_tex)
+	create_handle_material("handle_square_x", false, handle_square_x_tex)
+	create_handle_material("handle_square_y", false, handle_square_y_tex)
+	create_handle_material("handle_square_z", false, handle_square_z_tex)
 
 func calc_handle_value(
 	to_axis: Vector3,
