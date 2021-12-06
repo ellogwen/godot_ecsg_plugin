@@ -46,14 +46,12 @@ func set_handle(gizmo, index, camera, screen_pos):
 #		spatial.set_face_height(index, newAxisPos.y)
 	var val = calc_handle_value(
 		spatial.transform.basis.y,
-		spatial.transform.basis.x,
-		spatial.transform.basis.z,
 		get_handle_global_position(index, spatial),
 		camera,
 		screen_pos,
 		spatial.global_transform.origin
 		)
 	if val != null:
-		spatial.set_face_height(index, spatial.to_local(val).y)
+		spatial.set_face_height(index, val.y)
 
 

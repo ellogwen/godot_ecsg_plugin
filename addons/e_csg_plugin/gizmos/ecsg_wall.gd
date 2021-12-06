@@ -142,8 +142,6 @@ func set_handle(gizmo, index, camera, screen_pos):
 	if index == 1:
 		var val = calc_handle_value(
 			spatial.transform.basis.z,
-			spatial.transform.basis.y,
-			spatial.transform.basis.x,
 			get_handle_global_position(1, spatial),
 			camera,
 			screen_pos,
@@ -151,6 +149,7 @@ func set_handle(gizmo, index, camera, screen_pos):
 		)
 		if val != null:
 			spatial.LENGTH = val.length()
+
 
 	# width handler
 	if index == 2:
@@ -163,8 +162,6 @@ func set_handle(gizmo, index, camera, screen_pos):
 #			spatial.WIDTH = newAxisPos.x
 		var val = calc_handle_value(
 			spatial.transform.basis.x,
-			spatial.transform.basis.y,
-			spatial.transform.basis.z,
 			get_handle_global_position(2, spatial),
 			camera,
 			screen_pos,
@@ -184,12 +181,10 @@ func set_handle(gizmo, index, camera, screen_pos):
 #			spatial.set_top_row_height(index - 3, newAxisPos.y)
 		var val = calc_handle_value(
 			spatial.transform.basis.y,
-			spatial.transform.basis.x,
-			spatial.transform.basis.z,
 			get_handle_global_position(index, spatial),
 			camera,
 			screen_pos,
 			spatial.global_transform.origin
 		)
 		if val != null:
-			spatial.set_top_row_height(index - 3, val)
+			spatial.set_top_row_height(index - 3, val.length())

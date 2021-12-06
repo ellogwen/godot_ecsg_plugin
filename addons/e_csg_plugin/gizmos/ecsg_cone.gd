@@ -59,8 +59,6 @@ func set_handle(gizmo, index, camera, screen_pos):
 #			spatial.HEIGHT = newAxisPos.y
 		var val = calc_handle_value(
 			spatial.transform.basis.y,
-			spatial.transform.basis.x,
-			spatial.transform.basis.z,
 			get_handle_global_position(0, spatial),
 			camera,
 			screen_pos,
@@ -80,8 +78,6 @@ func set_handle(gizmo, index, camera, screen_pos):
 #			spatial.FLAT_TOP_OFFSET = 1.0 - newAxisPos.y
 		var val = calc_handle_value(
 			spatial.transform.basis.y,
-			spatial.transform.basis.x,
-			spatial.transform.basis.z,
 			get_handle_global_position(1, spatial),
 			camera,
 			screen_pos,
