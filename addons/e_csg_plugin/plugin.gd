@@ -7,6 +7,7 @@ const ECSGStarGizmo = preload("res://addons/e_csg_plugin/gizmos/ecsg_star.gd")
 const ECSGWallGizmo = preload("res://addons/e_csg_plugin/gizmos/ecsg_wall.gd")
 const ECSGTerrainGizmo = preload("res://addons/e_csg_plugin/gizmos/ecsg_terrain.gd")
 const ECSGStairsGizmo = preload("res://addons/e_csg_plugin/gizmos/ecsg_stairs.gd")
+const ECSGRampGizmo = preload("res://addons/e_csg_plugin/gizmos/ecsg_ramp.gd")
 
 # UI Scenes
 const CatalogueDockScene = preload("res://addons/e_csg_plugin/interface/catalogue_dock.tscn")
@@ -16,6 +17,7 @@ var _ecsgStarGizmo = ECSGStarGizmo.new()
 var _ecsgWallGizmo = ECSGWallGizmo.new()
 var _ecsgTerrainGizmo = ECSGTerrainGizmo.new()
 var _ecsgStairsGizmo = ECSGStairsGizmo.new()
+var _ecsgRampGizmo = ECSGRampGizmo.new()
 var _catalogueDock = null
 
 func _enter_tree():
@@ -29,6 +31,7 @@ func _enter_tree():
 	add_spatial_gizmo_plugin(_ecsgWallGizmo)
 	add_spatial_gizmo_plugin(_ecsgTerrainGizmo)
 	add_spatial_gizmo_plugin(_ecsgStairsGizmo)
+	add_spatial_gizmo_plugin(_ecsgRampGizmo)
 
 	# catalogue dock
 	_catalogueDock = CatalogueDockScene.instance()
@@ -42,6 +45,7 @@ func _exit_tree():
 	_catalogueDock.free()
 
 	# cleanup gizmos
+	remove_spatial_gizmo_plugin(_ecsgRampGizmo)
 	remove_spatial_gizmo_plugin(_ecsgStairsGizmo)
 	remove_spatial_gizmo_plugin(_ecsgTerrainGizmo)
 	remove_spatial_gizmo_plugin(_ecsgWallGizmo)
