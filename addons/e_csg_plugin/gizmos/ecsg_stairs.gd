@@ -109,4 +109,4 @@ func set_handle(gizmo, index, camera, screen_pos):
 		)
 
 		if val != null:
-			spatial.STEPS = int(val.length() * 5.0)
+			spatial.STEPS = int(val.length() * 10.0)
