@@ -1,141 +1,250 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://addons/e_csg_plugin/assets/textures/kenney_prototype/Orange/texture_01.png" type="Texture" id=1]
 [ext_resource path="res://addons/e_csg_plugin/assets/textures/kenney_prototype/Purple/texture_01.png" type="Texture" id=2]
 [ext_resource path="res://addons/e_csg_plugin/assets/textures/kenney_prototype/Red/texture_01.png" type="Texture" id=3]
 [ext_resource path="res://addons/e_csg_plugin/assets/textures/kenney_prototype/Green/texture_01.png" type="Texture" id=4]
-[ext_resource path="res://addons/e_csg_plugin/assets/textures/kenney_prototype/Dark/texture_13.png" type="Texture" id=5]
-[ext_resource path="res://addons/e_csg_plugin/data/catalogue/blocks/ecsg_toy_c.tscn" type="PackedScene" id=6]
-[ext_resource path="res://addons/e_csg_plugin/data/catalogue/blocks/ecsg_toy_l.tscn" type="PackedScene" id=7]
-[ext_resource path="res://addons/e_csg_plugin/data/catalogue/blocks/ecsg_toy_g.tscn" type="PackedScene" id=8]
+[ext_resource path="res://addons/e_csg_plugin/core/ecsg_halfpipe.gd" type="Script" id=5]
+[ext_resource path="res://addons/e_csg_plugin/data/catalogue/map/ecsg_halfpipe.tscn" type="PackedScene" id=6]
+[ext_resource path="res://addons/e_csg_plugin/materials/prototype_white.tres" type="Material" id=7]
+[ext_resource path="res://addons/e_csg_plugin/data/catalogue/basic/ecsg_wall.tscn" type="PackedScene" id=8]
 [ext_resource path="res://addons/e_csg_plugin/core/ecsg_stairs.gd" type="Script" id=9]
 [ext_resource path="res://addons/e_csg_plugin/data/catalogue/blocks/ecsg_toy_a.tscn" type="PackedScene" id=10]
-[ext_resource path="res://addons/e_csg_plugin/data/catalogue/blocks/ecsg_toy_b.tscn" type="PackedScene" id=11]
+[ext_resource path="res://addons/e_csg_plugin/assets/textures/kenney_prototype/Light/texture_07.png" type="Texture" id=11]
 [ext_resource path="res://addons/e_csg_plugin/data/catalogue/map/ecsg_stairs.tscn" type="PackedScene" id=12]
-[ext_resource path="res://addons/e_csg_plugin/data/catalogue/blocks/ecsg_toy_j.tscn" type="PackedScene" id=13]
+[ext_resource path="res://addons/e_csg_plugin/core/ecsg_gear.gd" type="Script" id=13]
 [ext_resource path="res://addons/e_csg_plugin/data/catalogue/map/ecsg_ramp.tscn" type="PackedScene" id=14]
-[ext_resource path="res://addons/e_csg_plugin/data/catalogue/basic/ecsg_box.tscn" type="PackedScene" id=15]
+[ext_resource path="res://addons/e_csg_plugin/core/ecsg_terrain.gd" type="Script" id=15]
 [ext_resource path="res://addons/e_csg_plugin/core/ecsg_ramp.gd" type="Script" id=16]
 [ext_resource path="res://addons/e_csg_plugin/core/ecsg_object.gd" type="Script" id=17]
-[ext_resource path="res://addons/e_csg_plugin/core/ecsg_box.gd" type="Script" id=18]
+[ext_resource path="res://addons/e_csg_plugin/data/catalogue/basic/ecsg_gear.tscn" type="PackedScene" id=18]
+[ext_resource path="res://addons/e_csg_plugin/core/ecsg_wall.gd" type="Script" id=19]
+[ext_resource path="res://addons/e_csg_plugin/data/catalogue/basic/ecsg_star.tscn" type="PackedScene" id=20]
+[ext_resource path="res://addons/e_csg_plugin/data/catalogue/map/ecsg_terrain.tscn" type="PackedScene" id=21]
+[ext_resource path="res://addons/e_csg_plugin/data/catalogue/blocks/ecsg_toy_generator.tscn" type="PackedScene" id=22]
+[ext_resource path="res://addons/e_csg_plugin/core/ecsg_star.gd" type="Script" id=23]
+[ext_resource path="res://addons/e_csg_plugin/data/catalogue/basic/ecsg_ngon.tscn" type="PackedScene" id=24]
+[ext_resource path="res://addons/e_csg_plugin/core/ecsg_ngon.gd" type="Script" id=25]
+[ext_resource path="res://addons/e_csg_plugin/data/catalogue/blocks/ecsg_toy_h.tscn" type="PackedScene" id=26]
+[ext_resource path="res://addons/e_csg_plugin/data/catalogue/blocks/ecsg_toy_k.tscn" type="PackedScene" id=27]
+[ext_resource path="res://addons/e_csg_plugin/core/ecsg_toy_generator.gd" type="Script" id=28]
+
+[sub_resource type="SpatialMaterial" id=1]
+albedo_texture = ExtResource( 4 )
+metallic = 0.2
+roughness = 0.8
+normal_enabled = true
+normal_scale = 16.0
+ao_enabled = true
+ao_light_affect = 0.0
+ao_on_uv2 = false
+ao_texture_channel = 0
+uv1_triplanar = true
 
 [sub_resource type="SpatialMaterial" id=2]
-flags_world_triplanar = true
-albedo_texture = ExtResource( 4 )
+albedo_texture = ExtResource( 3 )
+metallic = 0.2
+roughness = 0.8
+normal_enabled = true
+normal_scale = 16.0
+ao_enabled = true
+ao_light_affect = 0.0
+ao_on_uv2 = false
+ao_texture_channel = 0
 uv1_triplanar = true
-
-[sub_resource type="SpatialMaterial" id=7]
-flags_world_triplanar = true
-albedo_texture = ExtResource( 2 )
-uv1_triplanar = true
-
-[sub_resource type="SpatialMaterial" id=12]
-albedo_color = Color( 0.160784, 0.678431, 1, 1 )
 
 [sub_resource type="SpatialMaterial" id=3]
-albedo_color = Color( 1, 0.92549, 0.152941, 1 )
+albedo_texture = ExtResource( 2 )
+metallic = 0.2
+roughness = 0.8
+normal_enabled = true
+normal_scale = 16.0
+ao_enabled = true
+ao_light_affect = 0.0
+ao_on_uv2 = false
+ao_texture_channel = 0
+uv1_triplanar = true
 
-[sub_resource type="SpatialMaterial" id=8]
-flags_world_triplanar = true
-albedo_texture = ExtResource( 5 )
+[sub_resource type="SpatialMaterial" id=4]
+albedo_texture = ExtResource( 11 )
+metallic = 0.2
+roughness = 0.8
+normal_enabled = true
+normal_scale = 16.0
+ao_enabled = true
+ao_light_affect = 0.0
+ao_on_uv2 = false
+ao_texture_channel = 0
 uv1_triplanar = true
 
 [sub_resource type="SpatialMaterial" id=5]
-flags_world_triplanar = true
-albedo_texture = ExtResource( 3 )
-uv1_triplanar = true
+albedo_color = Color( 0, 0.529412, 0.317647, 1 )
 
 [sub_resource type="SpatialMaterial" id=6]
-flags_world_triplanar = true
 albedo_texture = ExtResource( 1 )
+metallic = 0.2
+roughness = 0.8
+normal_enabled = true
+normal_scale = 16.0
+ao_enabled = true
+ao_light_affect = 0.0
+ao_on_uv2 = false
+ao_texture_channel = 0
 uv1_triplanar = true
 
-[sub_resource type="SpatialMaterial" id=11]
-albedo_color = Color( 1, 0.639216, 0, 1 )
+[sub_resource type="SpatialMaterial" id=7]
+albedo_color = Color( 1, 0.92549, 0.152941, 1 )
 
 [node name="Spatial" type="Spatial"]
 
-[node name="ECSGBOX" type="CSGCombiner" parent="." instance=ExtResource( 15 )]
-transform = Transform( 8, 0, 0, 0, 0.1, 0, 0, 0, 8, 0, 0, 0 )
-material_override = SubResource( 2 )
+[node name="ECSGTERRAIN" type="CSGCombiner" parent="." instance=ExtResource( 21 )]
+material_override = SubResource( 1 )
 use_collision = true
-script = ExtResource( 18 )
+script = ExtResource( 15 )
 __meta__ = {
 "_edit_group_": true
 }
+COLUMNS = 5
+ROWS = 5
+_ecsg_terrain_geometry_storage = [ PoolVector3Array( -2.5, 0, -2.5, -1.66667, 0.47516, -2.5, -1.66667, 0.47516, -1.66667, -2.5, 0, -1.66667 ), PoolVector3Array( -2.5, 0, -1.66667, -1.66667, 0.47516, -1.66667, -1.66667, 0.201569, -0.833333, -2.5, 0, -0.833333 ), PoolVector3Array( -2.5, 0, -0.833333, -1.66667, 0.201569, -0.833333, -1.66667, 0.201569, -5.96046e-08, -2.5, 0, -5.96046e-08 ), PoolVector3Array( -2.5, 0, -5.96046e-08, -1.66667, 0.201569, -5.96046e-08, -1.66667, 0, 0.833333, -2.5, 0, 0.833333 ), PoolVector3Array( -2.5, 0, 0.833333, -1.66667, 0, 0.833333, -1.66667, -0.484743, 1.66667, -2.5, -0.484743, 1.66667 ), PoolVector3Array( -2.5, -0.484743, 1.66667, -1.66667, -0.484743, 1.66667, -1.66667, -0.484743, 2.5, -2.5, -0.484743, 2.5 ), PoolVector3Array( -1.66667, 0.47516, -2.5, -0.833333, 0.47516, -2.5, -0.833333, 0.47516, -1.66667, -1.66667, 0.47516, -1.66667 ), PoolVector3Array( -1.66667, 0.47516, -1.66667, -0.833333, 0.47516, -1.66667, -0.833333, 0.201569, -0.833333, -1.66667, 0.201569, -0.833333 ), PoolVector3Array( -1.66667, 0.201569, -0.833333, -0.833333, 0.201569, -0.833333, -0.833333, 0.201569, -5.96046e-08, -1.66667, 0.201569, -5.96046e-08 ), PoolVector3Array( -1.66667, 0.201569, -5.96046e-08, -0.833333, 0.201569, -5.96046e-08, -0.833333, 0, 0.833333, -1.66667, 0, 0.833333 ), PoolVector3Array( -1.66667, 0, 0.833333, -0.833333, 0, 0.833333, -0.833333, 0, 1.66667, -1.66667, -0.484743, 1.66667 ), PoolVector3Array( -1.66667, -0.484743, 1.66667, -0.833333, 0, 1.66667, -0.833333, 0, 2.5, -1.66667, -0.484743, 2.5 ), PoolVector3Array( -0.833333, 0.47516, -2.5, -5.96046e-08, 0, -2.5, -5.96046e-08, 0, -1.66667, -0.833333, 0.47516, -1.66667 ), PoolVector3Array( -0.833333, 0.47516, -1.66667, -5.96046e-08, 0, -1.66667, -5.96046e-08, 0, -0.833333, -0.833333, 0.201569, -0.833333 ), PoolVector3Array( -0.833333, 0.201569, -0.833333, -5.96046e-08, 0, -0.833333, -5.96046e-08, 0, -5.96046e-08, -0.833333, 0.201569, -5.96046e-08 ), PoolVector3Array( -0.833333, 0.201569, -5.96046e-08, -5.96046e-08, 0, -5.96046e-08, -5.96046e-08, 0, 0.833333, -0.833333, 0, 0.833333 ), PoolVector3Array( -0.833333, 0, 0.833333, -5.96046e-08, 0, 0.833333, -5.96046e-08, -0.296584, 1.66667, -0.833333, 0, 1.66667 ), PoolVector3Array( -0.833333, 0, 1.66667, -5.96046e-08, -0.296584, 1.66667, -5.96046e-08, -0.296584, 2.5, -0.833333, 0, 2.5 ), PoolVector3Array( -5.96046e-08, 0, -2.5, 0.833333, 0, -2.5, 0.833333, 0, -1.66667, -5.96046e-08, 0, -1.66667 ), PoolVector3Array( -5.96046e-08, 0, -1.66667, 0.833333, 0, -1.66667, 0.833333, 0, -0.833333, -5.96046e-08, 0, -0.833333 ), PoolVector3Array( -5.96046e-08, 0, -0.833333, 0.833333, 0, -0.833333, 0.833333, -0.193916, -5.96046e-08, -5.96046e-08, 0, -5.96046e-08 ), PoolVector3Array( -5.96046e-08, 0, -5.96046e-08, 0.833333, -0.193916, -5.96046e-08, 0.833333, -0.193916, 0.833333, -5.96046e-08, 0, 0.833333 ), PoolVector3Array( -5.96046e-08, 0, 0.833333, 0.833333, -0.193916, 0.833333, 0.833333, -0.522952, 1.66667, -5.96046e-08, -0.296584, 1.66667 ), PoolVector3Array( -5.96046e-08, -0.296584, 1.66667, 0.833333, -0.522952, 1.66667, 0.833333, -0.522952, 2.5, -5.96046e-08, -0.296584, 2.5 ), PoolVector3Array( 0.833333, 0, -2.5, 1.66667, 0, -2.5, 1.66667, 0, -1.66667, 0.833333, 0, -1.66667 ), PoolVector3Array( 0.833333, 0, -1.66667, 1.66667, 0, -1.66667, 1.66667, 0.406211, -0.833333, 0.833333, 0, -0.833333 ), PoolVector3Array( 0.833333, 0, -0.833333, 1.66667, 0.406211, -0.833333, 1.66667, -0.193916, -5.96046e-08, 0.833333, -0.193916, -5.96046e-08 ), PoolVector3Array( 0.833333, -0.193916, -5.96046e-08, 1.66667, -0.193916, -5.96046e-08, 1.66667, -0.193916, 0.833333, 0.833333, -0.193916, 0.833333 ), PoolVector3Array( 0.833333, -0.193916, 0.833333, 1.66667, -0.193916, 0.833333, 1.66667, -0.522952, 1.66667, 0.833333, -0.522952, 1.66667 ), PoolVector3Array( 0.833333, -0.522952, 1.66667, 1.66667, -0.522952, 1.66667, 1.66667, -0.522952, 2.5, 0.833333, -0.522952, 2.5 ), PoolVector3Array( 1.66667, 0, -2.5, 2.5, 0, -2.5, 2.5, 0, -1.66667, 1.66667, 0, -1.66667 ), PoolVector3Array( 1.66667, 0, -1.66667, 2.5, 0, -1.66667, 2.5, 0.406211, -0.833333, 1.66667, 0.406211, -0.833333 ), PoolVector3Array( 1.66667, 0.406211, -0.833333, 2.5, 0.406211, -0.833333, 2.5, 0.406211, -5.96046e-08, 1.66667, -0.193916, -5.96046e-08 ), PoolVector3Array( 1.66667, -0.193916, -5.96046e-08, 2.5, 0.406211, -5.96046e-08, 2.5, 0.117253, 0.833333, 1.66667, -0.193916, 0.833333 ), PoolVector3Array( 1.66667, -0.193916, 0.833333, 2.5, 0.117253, 0.833333, 2.5, 0.117253, 1.66667, 1.66667, -0.522952, 1.66667 ), PoolVector3Array( 1.66667, -0.522952, 1.66667, 2.5, 0.117253, 1.66667, 2.5, 0, 2.5, 1.66667, -0.522952, 2.5 ) ]
 _ecsg_edt_theme = "Prototype"
 _ecsg_edt_prototype = "Green"
 
-[node name="ECSGPLTOY" type="CSGCombiner" parent="." instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.1, 0, 0 )
-material_override = SubResource( 7 )
-script = ExtResource( 17 )
-_ecsg_edt_theme = "Prototype"
-_ecsg_edt_prototype = "Purple"
-
-[node name="ECSGPLTOY2" type="CSGCombiner" parent="." instance=ExtResource( 8 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7, 1, 6.70552e-08 )
-material_override = SubResource( 12 )
-script = ExtResource( 17 )
-_ecsg_edt_theme = "Palette"
-_ecsg_edt_palette = "Light Blue"
-
-[node name="ECSGPLTOY3" type="CSGCombiner" parent="." instance=ExtResource( 13 )]
-material_override = SubResource( 3 )
-script = ExtResource( 17 )
-_ecsg_edt_theme = "Palette"
-_ecsg_edt_palette = "Yellow"
-
-[node name="ECSGPLTOY7" parent="." instance=ExtResource( 13 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1, 0.5, 0 )
-material_override = SubResource( 8 )
-_ecsg_edt_prototype = "Dark"
-
-[node name="ECSGPLTOY4" type="CSGCombiner" parent="." instance=ExtResource( 10 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3 )
-material_override = SubResource( 5 )
-script = ExtResource( 17 )
-_ecsg_edt_theme = "Prototype"
-_ecsg_edt_prototype = "Red"
-
-[node name="ECSGPLTOY5" type="CSGCombiner" parent="." instance=ExtResource( 11 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2 )
-material_override = SubResource( 6 )
-script = ExtResource( 17 )
-_ecsg_edt_theme = "Prototype"
-_ecsg_edt_prototype = "Orange"
-
-[node name="ECSGPLTOY6" type="CSGCombiner" parent="." instance=ExtResource( 7 )]
-transform = Transform( 0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, 0.5, -1.31077, 0.2, 0.833013 )
-material_override = SubResource( 11 )
-script = ExtResource( 17 )
-_ecsg_edt_theme = "Palette"
-_ecsg_edt_palette = "Orange"
-
 [node name="ECSGRAMP" type="CSGCombiner" parent="." instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7, 0, 0.5 )
 material_override = SubResource( 2 )
 use_collision = true
 script = ExtResource( 16 )
 __meta__ = {
 "_edit_group_": true
 }
-HEIGHT = 1.5
-DEPTH = 2.25
+HEIGHT = 0.468182
 _ecsg_edt_theme = "Prototype"
-_ecsg_edt_prototype = "Green"
+_ecsg_edt_prototype = "Red"
 
 [node name="ECSGSTAIRS" type="CSGCombiner" parent="." instance=ExtResource( 12 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8, 0, 2.1 )
-material_override = SubResource( 8 )
+transform = Transform( 0.0148522, 0, 0.99989, 0, 1, 0, -0.99989, 0, 0.0148522, 0.92981, 0, 0 )
+material_override = SubResource( 3 )
 use_collision = true
 script = ExtResource( 9 )
 __meta__ = {
 "_edit_group_": true
 }
-STEPS = 8
-HEIGHT = 1.25
-WIDTH = 1.25
-DEPTH = 1.45
+HEIGHT = 0.551901
+WIDTH = 0.685627
+DEPTH = 0.738208
 _ecsg_edt_theme = "Prototype"
-_ecsg_edt_prototype = "Dark"
+_ecsg_edt_prototype = "Purple"
+
+[node name="ECSGHALFPIPE" type="CSGCombiner" parent="." instance=ExtResource( 6 )]
+transform = Transform( 0.688886, 0, -0.72487, 0, 1, 0, 0.72487, 0, 0.688886, -1.32422, 0.216634, 0 )
+material_override = SubResource( 4 )
+use_collision = true
+script = ExtResource( 5 )
+_ecsg_edt_theme = "Prototype"
+_ecsg_edt_prototype = "Light"
+
+[node name="ECSGSTAR" type="CSGCombiner" parent="." instance=ExtResource( 20 )]
+transform = Transform( 1, 0, 0, 0, 0.779972, -0.625815, 0, 0.625815, 0.779972, 2.66065, 0, 0 )
+material_override = SubResource( 5 )
+use_collision = true
+script = ExtResource( 23 )
+__meta__ = {
+"_edit_group_": true
+}
+HEIGHT = 0.640868
+HOLE = true
+HOLE_SIZE = 0.716
+_ecsg_edt_theme = "Palette"
+_ecsg_edt_palette = "Dark Green"
+
+[node name="ECSGWall" type="CSGCombiner" parent="." instance=ExtResource( 8 )]
+transform = Transform( -0.00774917, 0, 0.99997, 0, 1, 0, -0.99997, 0, -0.00774917, -1.03978, 0, -1.84785 )
+material_override = SubResource( 4 )
+use_collision = true
+script = ExtResource( 19 )
+__meta__ = {
+"_edit_group_": true
+}
+WIDTH = 0.28213
+SEGMENTS = 3
+_ecsg_edt_theme = "Prototype"
+_ecsg_edt_prototype = "Light"
+
+[node name="ECSGGEAR" type="CSGCombiner" parent="." instance=ExtResource( 18 )]
+transform = Transform( 1, 0, 0, 0, 0.762962, -0.646444, 0, 0.646444, 0.762962, 4.02868, 0.321626, 0.545442 )
+material_override = SubResource( 6 )
+use_collision = true
+script = ExtResource( 13 )
+__meta__ = {
+"_edit_group_": true
+}
+TEETH_TIP_SIZE = 0.328
+_ecsg_edt_theme = "Prototype"
+_ecsg_edt_prototype = "Orange"
+
+[node name="ECSGPLTOY" type="CSGCombiner" parent="." instance=ExtResource( 22 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.40684, 0, 0 )
+material_override = SubResource( 4 )
+script = ExtResource( 28 )
+_ecsg_edt_theme = "Prototype"
+_ecsg_edt_prototype = "Light"
+
+[node name="Body" type="CSGBox" parent="ECSGPLTOY"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0 )
+width = 0.5
+height = 0.5
+depth = 0.5
+
+[node name="Dot" type="CSGCylinder" parent="ECSGPLTOY"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.56, 0 )
+radius = 0.15
+height = 0.1
+sides = 24
+smooth_faces = false
+
+[node name="ECSGPLTOY2" type="CSGCombiner" parent="." instance=ExtResource( 27 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.968193 )
+material_override = SubResource( 7 )
+script = ExtResource( 17 )
+_ecsg_edt_theme = "Palette"
+_ecsg_edt_palette = "Yellow"
+
+[node name="ECSGPLTOY3" type="CSGCombiner" parent="." instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.80875, 0, 1.53377 )
+material_override = SubResource( 3 )
+script = ExtResource( 17 )
+_ecsg_edt_theme = "Prototype"
+_ecsg_edt_prototype = "Purple"
+
+[node name="ECSGPLTOY4" type="CSGCombiner" parent="." instance=ExtResource( 26 )]
+transform = Transform( 0.919039, 0, 0.394166, 0, 1, 0, -0.394166, 0, 0.919039, -2.19647, 0.552697, -1.57846 )
+material_override = SubResource( 4 )
+script = ExtResource( 17 )
+_ecsg_edt_theme = "Prototype"
+_ecsg_edt_prototype = "Light"
+
+[node name="ECSNGON" type="CSGCombiner" parent="." instance=ExtResource( 24 )]
+transform = Transform( 0.899367, 0, 0.437194, 0, 1, 0, -0.437194, 0, 0.899367, 0, -0.469045, 0.915654 )
+material_override = SubResource( 4 )
+script = ExtResource( 25 )
+__meta__ = {
+"_edit_group_": true
+}
+HOLE = true
+HOLE_SIZE = 0.646
+_ecsg_edt_theme = "Prototype"
+_ecsg_edt_prototype = "Light"
+
+[node name="ECSGSTAIRS2" type="CSGCombiner" parent="." instance=ExtResource( 12 )]
+transform = Transform( 0.129419, 0, 0.99159, 0, 1, 0, -0.99159, 0, 0.129419, 0, 0, -3.70302 )
+material_override = ExtResource( 7 )
+use_collision = true
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_group_": true
+}
+STEPS = 5
+WIDTH = 1.65452
+DEPTH = 0.901907
+BOTTOM_STYLE = "ZIGZAG"
+_ecsg_edt_theme = "Custom"

@@ -2,14 +2,10 @@
 
 This plugin is a collection of custom CSG compatible presets, generators and utilities to speed up whiteboxing. 
 
-# Alpha 1
+# Alpha 2
 
 This plugin is freshly created. It is not stable by any means. Please make sure to backup any work before using this plugin or use it in a freshly created project only.
 Feel free to open an issue if you encounter bugs or odd behaviour. This plugin was made for Godot 3.4. Other versions may work as well.
-
-### Known Issues
-
-- the Godot autoload system prevents the plugin from loading, while I will sort this out in the next commits, in the meantime you may need to add an AutoLoad in Project Settings > Autoloads name `ECSG` that points to the file `addons/e_csg_plugin/ecsg.gd`
 
 # Features
 
