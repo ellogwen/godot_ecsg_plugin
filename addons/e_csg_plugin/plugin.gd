@@ -22,8 +22,8 @@ var _catalogueDock = null
 
 func _enter_tree():
 	# autoloads
-	add_autoload_singleton("ECSG", "res://addons/e_csg_plugin/ecsg.gd")
-	ECSG.plugin = self
+	# add_autoload_singleton("ECSG", "res://addons/e_csg_plugin/ecsg.gd")
+	# ECSG.plugin = self
 
 	# gizmos
 	add_spatial_gizmo_plugin(_ecsgConeGizmo)
@@ -35,6 +35,7 @@ func _enter_tree():
 
 	# catalogue dock
 	_catalogueDock = CatalogueDockScene.instance()
+	_catalogueDock.set_plugin(self)
 	add_control_to_dock(DOCK_SLOT_LEFT_UL, _catalogueDock)
 	pass
 
@@ -53,7 +54,7 @@ func _exit_tree():
 	remove_spatial_gizmo_plugin(_ecsgConeGizmo)
 
 	# cleanup autoloads
-	remove_autoload_singleton("ECSG")
+	# remove_autoload_singleton("ECSG")
 	pass
 
 func set_state(state):

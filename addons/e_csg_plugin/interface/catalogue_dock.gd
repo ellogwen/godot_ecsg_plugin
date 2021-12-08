@@ -6,6 +6,10 @@ const PresetEntry = preload("res://addons/e_csg_plugin/interface/preset_entry.ts
 var _presets = {}
 var _current_selected_category_key = ""
 
+var _plugin = null
+func set_plugin(plugin): _plugin = plugin
+func get_plugin(): return _plugin
+
 func _ready():
 	$HBoxContainer/RefreshCategories.connect("pressed", self, "on_refresh_categories_button_pressed")
 	$HBoxContainer/CategoryOption.connect("item_selected", self, "on_catalogue_option_changed")
@@ -48,7 +52,7 @@ func _show_categorie_preset_list(cat_key):
 		# has to come after add_list
 		if (thumb == null):
 			prints("generate preview for", entry.path)
-			var prev_gen = ECSG.get_editor_interface().get_resource_previewer()
+			var prev_gen = get_plugin().get_editor_interface().get_resource_previewer()
 			prev_gen.queue_resource_preview(entry.path, self, "on_queue_resource_preview_generated", meta)
 
 		pos = pos + 1
@@ -137,7 +141,7 @@ func _update_categories_dropdown():
 		co.set_item_metadata(co.get_item_count() - 1, key)
 
 func on_preset_add_button_pressed(meta):
-	ECSG.get_plugin().create_and_add_ecsg_preset(meta.path)
+	get_plugin().create_and_add_ecsg_preset(meta.path)
 
 func _add_list_item(idx, name, thumbnail, meta):
 	var entry = PresetEntry.instance()

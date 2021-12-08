@@ -2,6 +2,7 @@ tool
 extends CSGCombiner
 class_name ECSGObject
 
+const ECSG = preload("res://addons/e_csg_plugin/ecsg.tres")
 const _ecsg_enums_material_theme_options = "Prototype,Palette,Custom"
 const _ecsg_enums_palette_options = "Black,White,Dark Blue,Dark Brown,Dark Gray,Dark Green,Dark Red,Light Blue,Light Brown,Light Gray,Light Green,Light Red,Orange,Pink,Skin,Yellow"
 const _ecsg_enums_prototype_options = "Dark,Light,Green,Red,Purple,Orange"
@@ -13,6 +14,9 @@ var _ecsg_custom_mat = null
 
 func is_ecsg(): return true
 func get_ecsg_type(): return "ECSGObject" # override me for custom gizmos
+
+func _init():
+	ECSG.setup()
 
 func _ready():
 	_update_material()

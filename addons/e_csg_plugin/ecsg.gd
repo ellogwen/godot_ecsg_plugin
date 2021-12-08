@@ -1,5 +1,5 @@
 tool
-extends Node
+extends Resource
 
 const DEFAULT_MATERIAL = preload("res://addons/e_csg_plugin/materials/prototype_white.tres")
 const PROTOTYPE_MATERIAL = preload("res://addons/e_csg_plugin/materials/prototype.material.tres")
@@ -34,13 +34,16 @@ var MAT_PROTO_RED = null
 
 var MATS_PALETTE = {}
 
-var plugin = null
-func get_plugin(): return plugin
+# var plugin = null
+# func get_plugin(): return plugin
 
-func get_editor_interface() -> EditorInterface:
-	return plugin.get_editor_interface()
+# func get_editor_interface() -> EditorInterface:
+#	return plugin.get_editor_interface()
 
-func _enter_tree():
+var _materials_created = false
+func setup():
+	if (_materials_created):
+		return
 	prints("[ECSG]", "Creating material cache")
 	# prototype material
 	MAT_PROTO_DARK = PROTOTYPE_MATERIAL.duplicate()
@@ -61,3 +64,5 @@ func _enter_tree():
 		var mat = PALETTE_MATERIAL.duplicate()
 		mat.albedo_color = PALETTE_COLORS[color]
 		MATS_PALETTE[color] = mat
+
+	_materials_created = true
