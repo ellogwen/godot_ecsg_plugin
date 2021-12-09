@@ -37,6 +37,12 @@ You can edit the terrain shape directly inside the 3d viewport.
 
 I will add more presets and functionality. Make sure to check for updates.
 
+# Known Issues
+
+- The spatial gizmos (the small circles and squares in the editor) don't update immedietly, will be fix soon
+- The properties of object, edited in editor with handles, may not update immedietly, will be fix shorty
+- You need a root spatial node in the scene tree to add shapes, the error message only shows in the console, a popup notification will be added soon
+
 # Contribution
 
 Feel free to provide your own shape presets. A tutorial how to create one, will come with the stable release
