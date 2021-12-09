@@ -9,6 +9,9 @@ Feel free to open an issue if you encounter bugs or odd behaviour. This plugin w
 
 # Features
 
+![alpha2_preview](https://user-images.githubusercontent.com/22261975/145475677-cd55dd6f-2d4b-45b2-ac5d-348134bbfc01.png)
+
+
 ### Categories
 
 The plugin provides several categories of presets
