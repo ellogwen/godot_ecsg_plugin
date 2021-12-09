@@ -1,29 +1,32 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://addons/e_csg_plugin/data/catalogue/map/ecsg_terrain.tscn" type="PackedScene" id=1]
-[ext_resource path="res://addons/e_csg_plugin/core/ecsg_terrain.gd" type="Script" id=2]
+[ext_resource path="res://addons/e_csg_plugin/core/ecsg_arch.gd" type="Script" id=1]
 [ext_resource path="res://addons/e_csg_plugin/assets/textures/kenney_prototype/Light/texture_07.png" type="Texture" id=3]
+[ext_resource path="res://addons/e_csg_plugin/data/catalogue/basic/ecsg_arch.tscn" type="PackedScene" id=4]
 
-[sub_resource type="SpatialMaterial" id=3]
-flags_world_triplanar = true
+[sub_resource type="SpatialMaterial" id=1]
 albedo_texture = ExtResource( 3 )
+metallic = 0.2
+roughness = 0.8
+normal_enabled = true
+normal_scale = 16.0
+ao_enabled = true
+ao_light_affect = 0.0
+ao_on_uv2 = false
+ao_texture_channel = 0
 uv1_triplanar = true
 
 [node name="Spatial" type="Spatial"]
 
 [node name="Camera" type="Camera" parent="."]
-transform = Transform( 0.377012, 0.273079, -0.885037, 0, 0.955548, 0.294836, 0.926208, -0.111157, 0.360253, -6.91072, 2.39661, 2.93867 )
+transform = Transform( 0.377012, 0.273079, -0.885037, 0, 0.955548, 0.294836, 0.926208, -0.111157, 0.360253, -1.98757, 0.848748, 0.846724 )
 fov = 35.1548
 
-[node name="ECSGTERRAIN" type="CSGCombiner" parent="." instance=ExtResource( 1 )]
-transform = Transform( 0.955552, 0, -0.294824, 0, 1, 0, 0.294824, 0, 0.955552, 0, 0, 0 )
-material_override = SubResource( 3 )
+[node name="ECSGARCH" type="CSGCombiner" parent="." instance=ExtResource( 4 )]
+transform = Transform( 0.166201, 0, -0.986092, 0, 1, 0, 0.986092, 0, 0.166201, 0, 0, 0 )
+material_override = SubResource( 1 )
 use_collision = true
-script = ExtResource( 2 )
-__meta__ = {
-"_edit_group_": true
-}
-COLUMNS = 5
-ROWS = 5
+script = ExtResource( 1 )
+HEIGHT = 0.6
 _ecsg_edt_theme = "Prototype"
 _ecsg_edt_prototype = "Light"

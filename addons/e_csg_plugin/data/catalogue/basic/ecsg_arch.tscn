@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://addons/e_csg_plugin/assets/textures/kenney_prototype/Light/texture_07.png" type="Texture" id=1]
+[ext_resource path="res://addons/e_csg_plugin/core/ecsg_arch.gd" type="Script" id=2]
+
+[sub_resource type="SpatialMaterial" id=1]
+albedo_texture = ExtResource( 1 )
+metallic = 0.2
+roughness = 0.8
+normal_enabled = true
+normal_scale = 16.0
+ao_enabled = true
+ao_light_affect = 0.0
+ao_on_uv2 = false
+ao_texture_channel = 0
+uv1_triplanar = true
+
+[node name="ECSGARCH" type="CSGCombiner"]
+material_override = SubResource( 1 )
+use_collision = true
+script = ExtResource( 2 )
+HEIGHT = 0.6
+_ecsg_edt_theme = "Prototype"
+_ecsg_edt_prototype = "Light"
+
+[node name="CSGPolygon" type="CSGPolygon" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00415376, -0.6, 0.15 )
+polygon = PoolVector2Array( -0.5, 0.6, -0.375, 0.8625, -0.25, 1.05, -0.125, 1.1625, 0, 1.2, 0.125, 1.1625, 0.25, 1.05, 0.375, 0.8625, 0.5, 0.6, 0.425, 0.6, 0.31875, 0.829687, 0.2125, 0.99375, 0.10625, 1.09219, 0, 1.125, -0.10625, 1.09219, -0.2125, 0.99375, -0.31875, 0.829687, -0.425, 0.6 )
+depth = 0.3
