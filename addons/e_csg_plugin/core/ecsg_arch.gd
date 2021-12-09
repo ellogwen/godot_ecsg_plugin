@@ -10,7 +10,7 @@ export(String, "PARABOLIC") var ARCH_TYPE = "PARABOLIC" setget set_arch_type
 export(bool) var FILLED = false setget set_filled
 export(float, 0.0, 1.0) var SEGMENT_DISTRIBUTION = 0.5 setget set_segment_distribution
 
-func get_ecsg_type(): return "ECSGGear"
+func get_ecsg_type(): return "ECSGArch"
 
 onready var csg_poly = $CSGPolygon
 
