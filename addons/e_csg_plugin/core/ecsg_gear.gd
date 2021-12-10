@@ -1,7 +1,7 @@
 tool
 extends "res://addons/e_csg_plugin/core/ecsg_object.gd"
 
-export(float, 0.1, 4.0, 0.05) var HEIGHT = 0.5 setget set_height
+export(float, 0.1, 16.0, 0.05) var HEIGHT = 0.5 setget set_height
 export(int, 3, 32) var TEETH = 12 setget set_teeth
 export(float, 0.0, 1.0) var TEETH_TIP_SIZE = 0.2 setget set_teeth_tip_size
 export(float, 0.0, 1.0) var TEETH_BASE_SIZE = 0.5 setget set_teeth_base_size
@@ -17,7 +17,7 @@ func _ready():
 	_calc_polygon()
 
 func set_height(val):
-	val = clamp(val, 0.1, 4.0)
+	val = clamp(val, 0.1, 16.0)
 	HEIGHT = val
 	if csg_poly != null:
 		$CSGPolygon/Cutter.height = HEIGHT

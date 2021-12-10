@@ -2,10 +2,10 @@ tool
 extends "res://addons/e_csg_plugin/core/ecsg_object.gd"
 
 export(int, 4, 36, 2) var SEGMENTS = 8 setget set_segments
-export(float, 0.05, 8.0, 0.05) var HEIGHT = 1.0 setget set_height
-export(float, 0.05, 8.0, 0.05) var BASE_WIDTH  = 1.0 setget set_base_width
+export(float, 0.05, 128.0, 0.05) var HEIGHT = 1.0 setget set_height
+export(float, 0.05, 128.0, 0.05) var BASE_WIDTH  = 1.0 setget set_base_width
 export(float, 0.01, 1.0) var THICKNESS = 0.3 setget set_thickness
-export(float, 0.05, 4.0) var DEPTH = 0.3 setget set_depth
+export(float, 0.05, 32.0) var DEPTH = 0.3 setget set_depth
 export(String, "PARABOLIC") var ARCH_TYPE = "PARABOLIC" setget set_arch_type
 export(bool) var FILLED = false setget set_filled
 export(float, 0.0, 1.0) var SEGMENT_DISTRIBUTION = 0.5 setget set_segment_distribution
@@ -24,12 +24,12 @@ func set_segments(val):
 	_calc_polygon()
 
 func set_height(val):
-	val = clamp(val, 0.05, 8.0)
+	val = clamp(val, 0.05, 128.0)
 	HEIGHT = val
 	_calc_polygon()
 
 func set_base_width(val):
-	val = clamp(val, 0.05, 8.0)
+	val = clamp(val, 0.05, 128.0)
 	BASE_WIDTH = val
 	_calc_polygon()
 
@@ -39,7 +39,7 @@ func set_thickness(val):
 	_calc_polygon()
 
 func set_depth(val):
-	val = clamp(val, 0.05, 4.0)
+	val = clamp(val, 0.05, 32.0)
 	DEPTH = val
 	_calc_polygon()
 

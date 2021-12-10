@@ -2,7 +2,7 @@ tool
 extends ECSGObject
 
 export(int, 3, 128) var SIDES = 4 setget set_sides
-export(float, 0.1, 4.0) var HEIGHT = 1.0 setget set_height
+export(float, 0.1, 32.0) var HEIGHT = 1.0 setget set_height
 export(bool) var FLAT_TOP = false setget set_flat_top
 export(float, 0.1, 0.99) var FLAT_TOP_OFFSET = 0.3 setget set_flat_top_offset
 
@@ -14,7 +14,7 @@ func set_sides(val):
 	$CSGCylinder.sides = val
 
 func set_height(val):
-	val = clamp(val, 0.1, 4.0)
+	val = clamp(val, 0.1, 32.0)
 	HEIGHT = val
 	$CSGCylinder.height = val
 	$CSGCylinder.transform.origin.y = val * 0.5

@@ -3,7 +3,7 @@ extends "res://addons/e_csg_plugin/core/ecsg_object.gd"
 
 export(int, 1, 100) var COLUMNS = 10 setget set_columns
 export(int, 1, 100) var ROWS = 10 setget set_rows
-export(float, 0.1, 4.0) var SEGMENT_SIZE = 1.0 setget set_segment_size
+export(float, 0.1, 16.0) var SEGMENT_SIZE = 1.0 setget set_segment_size
 
 func get_ecsg_type(): return "ECSGTerrain"
 
@@ -53,7 +53,7 @@ func set_rows(rows):
 	_update_mesh()
 
 func set_segment_size(size):
-	size = clamp(size, 0.1, 4.0)
+	size = clamp(size, 0.1, 16.0)
 	SEGMENT_SIZE = size
 	_build_mesh()
 	_update_mesh()

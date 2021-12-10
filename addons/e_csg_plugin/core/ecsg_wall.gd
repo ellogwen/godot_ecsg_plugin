@@ -2,7 +2,7 @@ tool
 extends "res://addons/e_csg_plugin/core/ecsg_object.gd"
 
 export(float, 0.1, 64.0, 0.05) var LENGTH = 4.0 setget set_length
-export(float, 0.1, 8.0, 0.05) var WIDTH = 1.0 setget set_width
+export(float, 0.1, 32.0, 0.05) var WIDTH = 1.0 setget set_width
 export(int, 1, 32) var SEGMENTS = 2 setget set_segments
 
 func get_ecsg_type(): return "ECSGWall"
@@ -18,7 +18,7 @@ func set_length(val):
 	_calc_polygon()
 
 func set_width(val):
-	val = clamp(val, 0.1, 8.0)
+	val = clamp(val, 0.1, 32.0)
 	WIDTH = val
 	if (csg_poly):
 		csg_poly.depth = val

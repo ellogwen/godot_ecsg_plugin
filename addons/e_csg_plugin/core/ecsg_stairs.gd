@@ -2,9 +2,9 @@ tool
 extends "res://addons/e_csg_plugin/core/ecsg_object.gd"
 
 export(int, 2, 32) var STEPS = 6 setget set_steps
-export(float, 0.1, 8.0, 0.05) var HEIGHT = 1.0 setget set_height
-export(float, 0.1, 4.0, 0.05) var WIDTH = 1.0 setget set_width
-export(float, 0.1, 8.0, 0.05) var DEPTH = 1.0 setget set_depth
+export(float, 0.1, 32.0, 0.05) var HEIGHT = 1.0 setget set_height
+export(float, 0.1, 16.0, 0.05) var WIDTH = 1.0 setget set_width
+export(float, 0.1, 64.0, 0.05) var DEPTH = 1.0 setget set_depth
 export(String, "FILLED", "FLAT", "ZIGZAG") var BOTTOM_STYLE = "FILLED" setget set_bottom_style
 
 onready var csg_poly = $CSGPolygon
@@ -20,12 +20,12 @@ func set_steps(val):
 	_calc_polygon()
 
 func set_height(val):
-	val = clamp(val, 0.1, 8.0)
+	val = clamp(val, 0.1, 32.0)
 	HEIGHT = val
 	_calc_polygon()
 
 func set_width(val):
-	val = clamp(val, 0.1, 4.0)
+	val = clamp(val, 0.1, 16.0)
 	WIDTH = val
 	if csg_poly != null:
 		$CSGPolygon.depth = val
@@ -33,7 +33,7 @@ func set_width(val):
 	_calc_polygon()
 
 func set_depth(val):
-	val = clamp(val, 0.1, 8.0)
+	val = clamp(val, 0.1, 64.0)
 	DEPTH = val
 	_calc_polygon()
 
