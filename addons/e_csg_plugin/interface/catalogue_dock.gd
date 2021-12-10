@@ -136,7 +136,9 @@ func _refresh_catalogue_list():
 func _update_categories_dropdown():
 	var co = $HBoxContainer/CategoryOption
 	co.clear()
-	for key in _presets.keys():
+	var keys_sorted = _presets.keys()
+	keys_sorted.sort()
+	for key in keys_sorted:
 		co.add_item((key as String).capitalize())
 		co.set_item_metadata(co.get_item_count() - 1, key)
 
