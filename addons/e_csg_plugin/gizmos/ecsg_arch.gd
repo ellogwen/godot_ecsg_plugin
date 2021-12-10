@@ -115,3 +115,29 @@ func set_handle(gizmo, index, camera, screen_pos):
 		if val != null:
 			spatial.THICKNESS = 1.0 - val.length()
 			spatial.property_list_changed_notify()
+
+	redraw(gizmo)
+
+func commit_handle(gizmo, index, restore, cancel = false):
+	var spatial = gizmo.get_spatial_node()
+	var undo_redo = get_plugin().get_undo_redo()
+
+	undo_redo.create_action("Arch %s" % [ get_handle_name(gizmo, index) ])
+
+	match(index):
+		0:
+			undo_redo.add_undo_method(spatial, "set_height", restore)
+			undo_redo.add_do_method(spatial, "set_height", spatial.HEIGHT)
+			undo_redo.commit_action()
+		1:
+			undo_redo.add_undo_method(spatial, "set_base_width", restore)
+			undo_redo.add_do_method(spatial, "set_base_width", spatial.BASE_WIDTH)
+			undo_redo.commit_action()
+		2:
+			undo_redo.add_undo_method(spatial, "set_depth", restore)
+			undo_redo.add_do_method(spatial, "set_depth", spatial.DEPTH)
+			undo_redo.commit_action()
+		3:
+			undo_redo.add_undo_method(spatial, "set_thickness", restore)
+			undo_redo.add_do_method(spatial, "set_thickness", spatial.THICKNESS)
+			undo_redo.commit_action()

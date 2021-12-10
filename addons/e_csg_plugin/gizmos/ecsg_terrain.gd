@@ -46,3 +46,15 @@ func set_handle(gizmo, index, camera, screen_pos):
 		)
 	if val != null:
 		spatial.set_face_height(index, val.y)
+
+	redraw(gizmo)
+
+func commit_handle(gizmo, index, restore, cancel = false):
+	var spatial = gizmo.get_spatial_node()
+	var undo_redo = get_plugin().get_undo_redo()
+
+	undo_redo.create_action("Terrain %s" % [ get_handle_name(gizmo, index) ])
+
+	undo_redo.add_undo_method(spatial, "set_face_height", index, restore)
+	undo_redo.add_do_method(spatial, "set_face_height", index, spatial.get_face_height(index))
+	undo_redo.commit_action()

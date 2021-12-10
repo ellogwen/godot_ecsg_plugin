@@ -73,3 +73,21 @@ func set_handle(gizmo, index, camera, screen_pos):
 		if val != null:
 			spatial.FLAT_TOP_OFFSET = val.length()
 			spatial.property_list_changed_notify()
+
+	redraw(gizmo)
+
+func commit_handle(gizmo, index, restore, cancel = false):
+	var spatial = gizmo.get_spatial_node()
+	var undo_redo = get_plugin().get_undo_redo()
+
+	undo_redo.create_action("Cone %s" % [ get_handle_name(gizmo, index) ])
+
+	match(index):
+		0:
+			undo_redo.add_undo_method(spatial, "set_height", restore)
+			undo_redo.add_do_method(spatial, "set_height", spatial.HEIGHT)
+			undo_redo.commit_action()
+		1:
+			undo_redo.add_undo_method(spatial, "set_flat_top_offset", restore)
+			undo_redo.add_do_method(spatial, "set_flat_top_offset", spatial.FLAT_TOP_OFFSET)
+			undo_redo.commit_action()

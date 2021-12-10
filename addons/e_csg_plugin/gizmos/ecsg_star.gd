@@ -72,3 +72,21 @@ func set_handle(gizmo, index, camera, screen_pos):
 		if val != null:
 			spatial.INSET = 1.0 - val.length()
 			spatial.property_list_changed_notify()
+
+	redraw(gizmo)
+
+func commit_handle(gizmo, index, restore, cancel = false):
+	var spatial = gizmo.get_spatial_node()
+	var undo_redo = get_plugin().get_undo_redo()
+
+	undo_redo.create_action("Star %s" % [ get_handle_name(gizmo, index) ])
+
+	match(index):
+		0:
+			undo_redo.add_undo_method(spatial, "set_height", restore)
+			undo_redo.add_do_method(spatial, "set_height", spatial.HEIGHT)
+			undo_redo.commit_action()
+		1:
+			undo_redo.add_undo_method(spatial, "set_inset", restore)
+			undo_redo.add_do_method(spatial, "set_inset", spatial.INSET)
+			undo_redo.commit_action()

@@ -9,7 +9,11 @@ const handle_square_x_tex = preload("res://addons/e_csg_plugin/assets/textures/g
 const handle_square_y_tex = preload("res://addons/e_csg_plugin/assets/textures/gizmos/handle_y_square.png")
 const handle_square_z_tex = preload("res://addons/e_csg_plugin/assets/textures/gizmos/handle_z_square.png")
 
+var _plugin = null
+
 func get_name(): return "ECSG Object"
+func get_plugin(): return _plugin
+func set_plugin(plugin): _plugin = plugin
 
 func is_ecsg_type(spatial, ecsg_type):
 	return (

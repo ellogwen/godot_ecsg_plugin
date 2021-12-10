@@ -112,3 +112,29 @@ func set_handle(gizmo, index, camera, screen_pos):
 		if val != null:
 			spatial.STEPS = int(val.length() * 10.0)
 			spatial.property_list_changed_notify()
+
+	redraw(gizmo)
+
+func commit_handle(gizmo, index, restore, cancel = false):
+	var spatial = gizmo.get_spatial_node()
+	var undo_redo = get_plugin().get_undo_redo()
+
+	undo_redo.create_action("Stairs %s" % [ get_handle_name(gizmo, index) ])
+
+	match(index):
+		0:
+			undo_redo.add_undo_method(spatial, "set_width", restore)
+			undo_redo.add_do_method(spatial, "set_width", spatial.WIDTH)
+			undo_redo.commit_action()
+		1:
+			undo_redo.add_undo_method(spatial, "set_height", restore)
+			undo_redo.add_do_method(spatial, "set_height", spatial.HEIGHT)
+			undo_redo.commit_action()
+		2:
+			undo_redo.add_undo_method(spatial, "set_depth", restore)
+			undo_redo.add_do_method(spatial, "set_depth", spatial.DEPTH)
+			undo_redo.commit_action()
+		3:
+			undo_redo.add_undo_method(spatial, "set_steps", restore)
+			undo_redo.add_do_method(spatial, "set_steps", spatial.STEPS)
+			undo_redo.commit_action()

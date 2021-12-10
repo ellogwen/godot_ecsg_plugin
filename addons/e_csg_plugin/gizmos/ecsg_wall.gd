@@ -134,3 +134,27 @@ func set_handle(gizmo, index, camera, screen_pos):
 		if val != null:
 			spatial.set_top_row_height(index - 3, val.length())
 			spatial.property_list_changed_notify()
+
+	redraw(gizmo)
+
+func commit_handle(gizmo, index, restore, cancel = false):
+	var spatial = gizmo.get_spatial_node()
+	var undo_redo = get_plugin().get_undo_redo()
+
+	undo_redo.create_action("Wall %s" % [ get_handle_name(gizmo, index) ])
+
+	match(index):
+		0:
+			pass
+		1:
+			undo_redo.add_undo_method(spatial, "set_length", restore)
+			undo_redo.add_do_method(spatial, "set_length", spatial.LENGTH)
+			undo_redo.commit_action()
+		2:
+			undo_redo.add_undo_method(spatial, "set_width", restore)
+			undo_redo.add_do_method(spatial, "set_width", spatial.WIDTH)
+			undo_redo.commit_action()
+		_:
+			undo_redo.add_undo_method(spatial, "set_top_row_height", index - 3, restore)
+			undo_redo.add_do_method(spatial, "set_top_row_height", index - 3, spatial.get_top_row_point(index - 3).y)
+			undo_redo.commit_action()

@@ -32,6 +32,14 @@ func _enter_tree():
 	add_child(_confirmPrompt)
 
 	# gizmos
+	_ecsgConeGizmo.set_plugin(self)
+	_ecsgStarGizmo.set_plugin(self)
+	_ecsgWallGizmo.set_plugin(self)
+	_ecsgTerrainGizmo.set_plugin(self)
+	_ecsgStairsGizmo.set_plugin(self)
+	_ecsgRampGizmo.set_plugin(self)
+	_ecsgArchGizmo.set_plugin(self)
+
 	add_spatial_gizmo_plugin(_ecsgConeGizmo)
 	add_spatial_gizmo_plugin(_ecsgStarGizmo)
 	add_spatial_gizmo_plugin(_ecsgWallGizmo)
