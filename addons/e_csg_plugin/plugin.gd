@@ -21,11 +21,15 @@ var _ecsgStairsGizmo = ECSGStairsGizmo.new()
 var _ecsgRampGizmo = ECSGRampGizmo.new()
 var _ecsgArchGizmo = ECSGArchGizmo.new()
 var _catalogueDock = null
+var _confirmPrompt = null
 
 func _enter_tree():
 	# autoloads
 	# add_autoload_singleton("ECSG", "res://addons/e_csg_plugin/ecsg.gd")
 	# ECSG.plugin = self
+
+	_confirmPrompt = AcceptDialog.new()
+	add_child(_confirmPrompt)
 
 	# gizmos
 	add_spatial_gizmo_plugin(_ecsgConeGizmo)
@@ -47,6 +51,9 @@ func _exit_tree():
 	# cleanup dock
 	remove_control_from_docks(_catalogueDock)
 	_catalogueDock.free()
+
+	remove_child(_confirmPrompt)
+	_confirmPrompt.free()
 
 	# cleanup gizmos
 	remove_spatial_gizmo_plugin(_ecsgArchGizmo)
@@ -78,6 +85,7 @@ func create_and_add_ecsg_preset(preset_path):
 func add_ecsg_instance(instance):
 	var root3D = get_editor_interface().get_edited_scene_root()
 	if (root3D == null):
+		prompt_user("Root node missing", "Cannot create instance, please add a spatial or one of its derivative to the scene root first")
 		push_error("Cannot create instance, please add a spatial or one of its derivative to the scene root first")
 		return
 	if (instance == null):
@@ -86,3 +94,8 @@ func add_ecsg_instance(instance):
 	instance.set_owner(root3D)
 	get_editor_interface().get_selection().clear()
 	get_editor_interface().get_selection().add_node(instance)
+
+func prompt_user(title, text):
+	_confirmPrompt.window_title = title
+	_confirmPrompt.dialog_text = text
+	_confirmPrompt.popup_centered_minsize(Vector2(320, 320))
