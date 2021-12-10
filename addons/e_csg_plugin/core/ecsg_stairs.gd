@@ -24,8 +24,9 @@ func set_height(val):
 func set_width(val):
 	val = clamp(val, 0.1, 4.0)
 	WIDTH = val
-	$CSGPolygon.depth = val
-	$CSGPolygon.transform.origin.x = -(val * 0.5)
+	if csg_poly != null:
+		$CSGPolygon.depth = val
+		$CSGPolygon.transform.origin.x = -(val * 0.5)
 	_calc_polygon()
 
 func set_depth(val):

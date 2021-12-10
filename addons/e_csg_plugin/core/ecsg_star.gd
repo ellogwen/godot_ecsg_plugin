@@ -14,8 +14,9 @@ func get_ecsg_type(): return "ECSGStar"
 func set_height(val):
 	val = clamp(val, 0.1, 4.0)
 	HEIGHT = val
-	$CSGPolygon/Cutter.scale.z = HEIGHT * 2.0
-	$CSGPolygon/Cutter.transform.origin.z = val * 2.0 * 0.25
+	if csg_poly != null:
+		$CSGPolygon/Cutter.scale.z = HEIGHT * 2.0
+		$CSGPolygon/Cutter.transform.origin.z = val * 2.0 * 0.25
 	_calc_polygon()
 
 func set_spikes(val):
@@ -30,13 +31,15 @@ func set_inset(val):
 
 func set_hole(val):
 	HOLE = val
-	$CSGPolygon/Cutter.visible = val
+	if csg_poly != null:
+		$CSGPolygon/Cutter.visible = val
 
 func set_hole_size(val):
 	val = clamp(val, 0.0, 0.99)
 	HOLE_SIZE = val
-	$CSGPolygon/Cutter.set_scale(Vector3(val, val, HEIGHT * 2.0))
-	$CSGPolygon/Cutter.transform.origin.z = (HEIGHT * 2.0) * 0.25
+	if csg_poly != null:
+		$CSGPolygon/Cutter.set_scale(Vector3(val, val, HEIGHT * 2.0))
+		$CSGPolygon/Cutter.transform.origin.z = (HEIGHT * 2.0) * 0.25
 
 func get_spike_local_point(spike_idx):
 	var angle = 360.0 / SPIKES
