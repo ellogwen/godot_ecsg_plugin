@@ -12,12 +12,15 @@ func set_sides(val):
 	SIDES = val
 	$CSGPolygon.spin_sides = val
 	$CSGPolygon/Cutter.spin_sides = val
+	property_list_changed_notify()
 
 func set_hole(val):
 	HOLE = val
 	$CSGPolygon/Cutter.visible = val
+	property_list_changed_notify()
 
 func set_hole_size(val):
 	val = clamp(val, 0.0, 1.0)
 	HOLE_SIZE = val
 	$CSGPolygon/Cutter.set_scale(Vector3(val, 1.2, val))
+	property_list_changed_notify()

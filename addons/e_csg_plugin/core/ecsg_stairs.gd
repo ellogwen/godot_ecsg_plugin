@@ -7,6 +7,8 @@ export(float, 0.1, 4.0, 0.05) var WIDTH = 1.0 setget set_width
 export(float, 0.1, 8.0, 0.05) var DEPTH = 1.0 setget set_depth
 export(String, "FILLED", "FLAT", "ZIGZAG") var BOTTOM_STYLE = "FILLED" setget set_bottom_style
 
+onready var csg_poly = $CSGPolygon
+
 func get_ecsg_type(): return "ECSGStairs"
 
 func set_steps(val):
@@ -41,6 +43,9 @@ func set_bottom_style(val):
 	property_list_changed_notify()
 
 func _calc_polygon():
+	if csg_poly == null:
+		return
+
 	var points = PoolVector2Array()
 
 	var step_size : float = DEPTH / STEPS
@@ -98,7 +103,5 @@ func _calc_polygon():
 
 			points.push_back(Vector2(z, y2))
 			points.push_back(Vector2(z, y1))
-
-
 
 	$CSGPolygon.polygon = points

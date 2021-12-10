@@ -12,6 +12,7 @@ func set_sides(val):
 	val = clamp(val, 3, 128)
 	SIDES = val
 	$CSGCylinder.sides = val
+	property_list_changed_notify()
 
 func set_height(val):
 	val = clamp(val, 0.1, 4.0)
@@ -19,10 +20,12 @@ func set_height(val):
 	$CSGCylinder.height = val
 	$CSGCylinder.transform.origin.y = val * 0.5
 	$CSGCylinder/Flatter.transform.origin.y = val * 0.5
+	property_list_changed_notify()
 
 func set_flat_top(val):
 	FLAT_TOP = val
 	$CSGCylinder/Flatter.visible = val
+	property_list_changed_notify()
 
 func set_flat_top_offset(val):
 	val = clamp(val, 0.1, 0.99)
@@ -30,3 +33,4 @@ func set_flat_top_offset(val):
 		val = 0.51 # godot bug?
 	FLAT_TOP_OFFSET = val
 	$CSGCylinder/Flatter.height = val * 2.0
+	property_list_changed_notify()

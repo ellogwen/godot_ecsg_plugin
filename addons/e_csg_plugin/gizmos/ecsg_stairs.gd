@@ -12,7 +12,6 @@ func redraw(gizmo):
 	gizmo.clear()
 	var spatial = gizmo.get_spatial_node()
 
-
 	# width edit handle
 	var handles = PoolVector3Array()
 	handles.push_back(get_handle_local_position(0, spatial))
@@ -107,6 +106,5 @@ func set_handle(gizmo, index, camera, screen_pos):
 			screen_pos,
 			spatial.global_transform.origin
 		)
-
 		if val != null:
 			spatial.STEPS = int(val.length() * 10.0)

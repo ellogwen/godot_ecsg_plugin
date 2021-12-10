@@ -9,16 +9,19 @@ func set_body_height(val):
 	val = clamp(val, 0.1, 4.0)
 	BODY_HEIGHT = val
 	_generate_shape()
+	property_list_changed_notify()
 
 func set_columns(val):
 	val = clamp(val, 1, 8)
 	COLUMNS = val
 	_generate_shape()
+	property_list_changed_notify()
 
 func set_rows(val):
 	val = clamp(val, 1, 8)
 	ROWS = val
 	_generate_shape()
+	property_list_changed_notify()
 
 func _generate_shape():
 	for c in get_children():

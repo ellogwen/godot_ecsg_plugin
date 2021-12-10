@@ -10,11 +10,14 @@ func get_ecsg_type(): return "ECSGSphere"
 func set_cut_xz(val):
 	CUT_XZ = val
 	$CSGSphere/CutXZ.visible = val
+	property_list_changed_notify()
 
 func set_cut_yz(val):
 	CUT_YZ = val
 	$CSGSphere/CutYZ.visible = val
+	property_list_changed_notify()
 
 func set_cut_xy(val):
 	CUT_XY = val
 	$CSGSphere/CutXY.visible = val
+	property_list_changed_notify()

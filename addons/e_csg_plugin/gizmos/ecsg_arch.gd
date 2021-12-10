@@ -12,7 +12,6 @@ func redraw(gizmo):
 	gizmo.clear()
 	var spatial = gizmo.get_spatial_node()
 
-
 	# height edit handle
 	var handles = PoolVector3Array()
 	handles.push_back(get_handle_local_position(0, spatial))

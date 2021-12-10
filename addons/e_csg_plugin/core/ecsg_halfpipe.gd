@@ -12,3 +12,4 @@ func set_steepness(val):
 	var cyl = $CSGBox/CSGCylinder
 	cyl.transform.origin.y = lerp(0.3, 0.8, use)
 	cyl.radius = lerp(0.5, 1.0, use)
+	property_list_changed_notify()

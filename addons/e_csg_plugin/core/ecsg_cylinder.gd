@@ -12,21 +12,26 @@ func get_ecsg_type(): return "ECSGCylinder"
 func set_cone(val):
 	CONE = val
 	$CSGCylinder.cone = val
+	property_list_changed_notify()
 
 func set_hole(val):
 	HOLE = val
 	$CSGCylinder/Hole.visible = val
+	property_list_changed_notify()
 
 func set_hole_size(val):
 	val = clamp(val, 0.0, 1.0)
 	HOLE_SIZE = val
 	$CSGCylinder/Hole.radius = val
+	property_list_changed_notify()
 
 func set_flat_top(val):
 	FLAT_TOP = val
 	$CSGCylinder/Flatter.visible = val
+	property_list_changed_notify()
 
 func set_flat_top_offset(val):
 	val = clamp(val, 0.1, 1.0)
 	FLAT_TOP_OFFSET = val
 	$CSGCylinder/Flatter.height = val * 2.0
+	property_list_changed_notify()

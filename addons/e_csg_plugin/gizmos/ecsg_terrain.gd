@@ -37,13 +37,6 @@ func set_handle(gizmo, index, camera, screen_pos):
 	var spatial = gizmo.get_spatial_node()
 
 	# height handle
-#	var toAxis = spatial.global_transform.basis.y
-#	var handle_pos = get_handle_global_position(0, spatial)
-#	var p = Plane(spatial.global_transform.basis.z, handle_pos.z)
-#	var intersection = p.intersects_ray(camera.project_ray_origin(screen_pos), camera.project_ray_normal(screen_pos))
-#	if intersection != null:
-#		var newAxisPos = (intersection - handle_pos).project(toAxis) + handle_pos
-#		spatial.set_face_height(index, newAxisPos.y)
 	var val = calc_handle_value(
 		spatial.transform.basis.y,
 		get_handle_global_position(index, spatial),
@@ -53,5 +46,3 @@ func set_handle(gizmo, index, camera, screen_pos):
 		)
 	if val != null:
 		spatial.set_face_height(index, val.y)
-
-

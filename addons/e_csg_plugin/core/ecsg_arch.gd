@@ -19,39 +19,47 @@ func set_segments(val):
 	val = val + (val % 2) # only even segments?
 	SEGMENTS = val
 	_calc_polygon()
+	property_list_changed_notify()
 
 func set_height(val):
 	val = clamp(val, 0.05, 8.0)
 	HEIGHT = val
 	_calc_polygon()
+	property_list_changed_notify()
 
 func set_base_width(val):
 	val = clamp(val, 0.05, 8.0)
 	BASE_WIDTH = val
 	_calc_polygon()
+	property_list_changed_notify()
 
 func set_thickness(val):
 	val = clamp(val, 0.01, 1.0)
 	THICKNESS = val
 	_calc_polygon()
+	property_list_changed_notify()
 
 func set_depth(val):
 	val = clamp(val, 0.05, 4.0)
 	DEPTH = val
 	_calc_polygon()
+	property_list_changed_notify()
 
 func set_arch_type(val):
 	ARCH_TYPE = val
 	_calc_polygon()
+	property_list_changed_notify()
 
 func set_segment_distribution(val):
 	val = clamp(val, 0.0, 1.0)
 	SEGMENT_DISTRIBUTION = val
 	_calc_polygon()
+	property_list_changed_notify()
 
 func set_filled(val):
 	FILLED = val
 	_calc_polygon()
+	property_list_changed_notify()
 
 func _calc_polygon():
 	if (not csg_poly):
