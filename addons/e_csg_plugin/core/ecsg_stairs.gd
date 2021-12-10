@@ -11,6 +11,9 @@ onready var csg_poly = $CSGPolygon
 
 func get_ecsg_type(): return "ECSGStairs"
 
+func _ready():
+	_calc_polygon()
+
 func set_steps(val):
 	val = clamp(val, 2, 32)
 	STEPS = val

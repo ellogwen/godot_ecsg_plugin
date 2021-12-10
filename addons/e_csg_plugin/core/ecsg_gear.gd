@@ -13,6 +13,9 @@ func get_ecsg_type(): return "ECSGGear"
 
 onready var csg_poly = $CSGPolygon
 
+func _ready():
+	_calc_polygon()
+
 func set_height(val):
 	val = clamp(val, 0.1, 4.0)
 	HEIGHT = val

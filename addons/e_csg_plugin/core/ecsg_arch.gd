@@ -14,6 +14,9 @@ func get_ecsg_type(): return "ECSGArch"
 
 onready var csg_poly = $CSGPolygon
 
+func _ready():
+	_calc_polygon()
+
 func set_segments(val):
 	val = clamp(val, 4, 36)
 	val = val + (val % 2) # only even segments?

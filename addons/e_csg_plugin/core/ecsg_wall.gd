@@ -9,6 +9,9 @@ func get_ecsg_type(): return "ECSGWall"
 
 onready var csg_poly = $CSGPolygon
 
+func _ready():
+	_calc_polygon()
+
 func set_length(val):
 	val = clamp(val, 0.1, 64.0)
 	LENGTH = val
