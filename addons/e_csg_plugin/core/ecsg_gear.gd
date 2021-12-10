@@ -19,44 +19,37 @@ func set_height(val):
 	$CSGPolygon/Cutter.height = HEIGHT
 	$CSGPolygon/Cutter.transform.origin.z = -(HEIGHT * 0.5)
 	_calc_polygon()
-	property_list_changed_notify()
 
 func set_teeth(val):
 	val = clamp(val, 3, 32)
 	TEETH = val
 	_calc_polygon()
-	property_list_changed_notify()
 
 func set_teeth_tip_size(val):
 	val = clamp(val, 0.0, 1.0)
 	TEETH_TIP_SIZE = val
 	_calc_polygon()
-	property_list_changed_notify()
 
 func set_teeth_base_size(val):
 	val = clamp(val, 0.0, 1.0)
 	TEETH_BASE_SIZE = val
 	_calc_polygon()
-	property_list_changed_notify()
 
 func set_inset(val):
 	val = clamp(val, 0.0, 1.0)
 	INSET = val
 	_calc_polygon()
-	property_list_changed_notify()
 
 func set_hole(val):
 	HOLE = val
 	$CSGPolygon/Cutter.radius = HOLE_SIZE
 	$CSGPolygon/Cutter.visible = val
-	property_list_changed_notify()
 
 func set_hole_size(val):
 	val = clamp(val, 0.0, 0.99)
 	HOLE_SIZE = val
 	$CSGPolygon/Cutter.radius = val
 	$CSGPolygon/Cutter.transform.origin.z = -(HEIGHT * 0.5)
-	property_list_changed_notify()
 
 func get_tip_local_point(tooth_idx):
 	var angle = 360.0 / TEETH

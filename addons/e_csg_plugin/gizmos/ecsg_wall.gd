@@ -107,6 +107,7 @@ func set_handle(gizmo, index, camera, screen_pos):
 		)
 		if val != null:
 			spatial.LENGTH = val.length()
+			spatial.property_list_changed_notify()
 
 	# width handler
 	if index == 2:
@@ -119,6 +120,7 @@ func set_handle(gizmo, index, camera, screen_pos):
 		)
 		if val != null:
 			spatial.WIDTH = val.length()
+			spatial.property_list_changed_notify()
 
 	# segment height handler
 	if index > 2:
@@ -131,3 +133,4 @@ func set_handle(gizmo, index, camera, screen_pos):
 		)
 		if val != null:
 			spatial.set_top_row_height(index - 3, val.length())
+			spatial.property_list_changed_notify()

@@ -15,13 +15,11 @@ func set_steps(val):
 	val = clamp(val, 2, 32)
 	STEPS = val
 	_calc_polygon()
-	property_list_changed_notify()
 
 func set_height(val):
 	val = clamp(val, 0.1, 8.0)
 	HEIGHT = val
 	_calc_polygon()
-	property_list_changed_notify()
 
 func set_width(val):
 	val = clamp(val, 0.1, 4.0)
@@ -29,18 +27,15 @@ func set_width(val):
 	$CSGPolygon.depth = val
 	$CSGPolygon.transform.origin.x = -(val * 0.5)
 	_calc_polygon()
-	property_list_changed_notify()
 
 func set_depth(val):
 	val = clamp(val, 0.1, 8.0)
 	DEPTH = val
 	_calc_polygon()
-	property_list_changed_notify()
 
 func set_bottom_style(val):
 	BOTTOM_STYLE = val
 	_calc_polygon()
-	property_list_changed_notify()
 
 func _calc_polygon():
 	if csg_poly == null:

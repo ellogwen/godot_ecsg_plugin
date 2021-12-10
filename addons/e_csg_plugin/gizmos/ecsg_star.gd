@@ -58,6 +58,7 @@ func set_handle(gizmo, index, camera, screen_pos):
 		)
 		if val != null:
 			spatial.HEIGHT = val.length()
+			spatial.property_list_changed_notify()
 
 	# inset
 	if index == 1:
@@ -70,3 +71,4 @@ func set_handle(gizmo, index, camera, screen_pos):
 		)
 		if val != null:
 			spatial.INSET = 1.0 - val.length()
+			spatial.property_list_changed_notify()

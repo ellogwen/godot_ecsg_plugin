@@ -13,7 +13,6 @@ func set_length(val):
 	val = clamp(val, 0.1, 64.0)
 	LENGTH = val
 	_calc_polygon()
-	property_list_changed_notify()
 
 func set_width(val):
 	val = clamp(val, 0.1, 8.0)
@@ -21,13 +20,11 @@ func set_width(val):
 	if (csg_poly):
 		csg_poly.depth = val
 	_calc_polygon()
-	property_list_changed_notify()
 
 func set_segments(val):
 	val = clamp(val, 1, 32)
 	SEGMENTS = val
 	_calc_polygon()
-	property_list_changed_notify()
 
 func get_top_row_points():
 	var result = PoolVector3Array()

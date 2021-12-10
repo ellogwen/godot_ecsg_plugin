@@ -87,6 +87,7 @@ func set_handle(gizmo, index, camera, screen_pos):
 		)
 		if val != null:
 			spatial.BASE_WIDTH = val.length() * 2.0
+			spatial.property_list_changed_notify()
 
 	# depth handle
 	if index == 2:
@@ -99,6 +100,7 @@ func set_handle(gizmo, index, camera, screen_pos):
 		)
 		if val != null:
 			spatial.DEPTH = val.length() * 2.0
+			spatial.property_list_changed_notify()
 
 	# thickness handle
 	if index == 3:
@@ -111,3 +113,4 @@ func set_handle(gizmo, index, camera, screen_pos):
 		)
 		if val != null:
 			spatial.THICKNESS = 1.0 - val.length()
+			spatial.property_list_changed_notify()

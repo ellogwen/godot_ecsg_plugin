@@ -17,31 +17,26 @@ func set_height(val):
 	$CSGPolygon/Cutter.scale.z = HEIGHT * 2.0
 	$CSGPolygon/Cutter.transform.origin.z = val * 2.0 * 0.25
 	_calc_polygon()
-	property_list_changed_notify()
 
 func set_spikes(val):
 	val = clamp(val, 3, 32)
 	SPIKES = val
 	_calc_polygon()
-	property_list_changed_notify()
 
 func set_inset(val):
 	val = clamp(val, -0.99, 2.0)
 	INSET = val
 	_calc_polygon()
-	property_list_changed_notify()
 
 func set_hole(val):
 	HOLE = val
 	$CSGPolygon/Cutter.visible = val
-	property_list_changed_notify()
 
 func set_hole_size(val):
 	val = clamp(val, 0.0, 0.99)
 	HOLE_SIZE = val
 	$CSGPolygon/Cutter.set_scale(Vector3(val, val, HEIGHT * 2.0))
 	$CSGPolygon/Cutter.transform.origin.z = (HEIGHT * 2.0) * 0.25
-	property_list_changed_notify()
 
 func get_spike_local_point(spike_idx):
 	var angle = 360.0 / SPIKES

@@ -13,35 +13,29 @@ func get_ecsg_type(): return "ECSGBox"
 func set_hole_y_enabled(val):
 	HOLE_Y = val
 	$CSGBox/CutY.visible = val
-	property_list_changed_notify()
 
 func set_hole_x_enabled(val):
 	HOLE_X = val
 	$CSGBox/CutX.visible = val
-	property_list_changed_notify()
 
 func set_hole_z_enabled(val):
 	HOLE_Z = val
 	$CSGBox/CutZ.visible = val
-	property_list_changed_notify()
 
 func set_hole_y_size(val):
 	val = clamp(val, 0.0, 0.5)
 	HOLE_Y_SIZE = val
 	$CSGBox/CutY.width = val
 	$CSGBox/CutY.depth = val
-	property_list_changed_notify()
 
 func set_hole_x_size(val):
 	val = clamp(val, 0.0, 0.5)
 	HOLE_X_SIZE = val
 	$CSGBox/CutX.width = val
 	$CSGBox/CutX.depth = val
-	property_list_changed_notify()
 
 func set_hole_z_size(val):
 	val = clamp(val, 0.0, 0.5)
 	HOLE_Z_SIZE = val
 	$CSGBox/CutZ.width = val
 	$CSGBox/CutZ.depth = val
-	property_list_changed_notify()

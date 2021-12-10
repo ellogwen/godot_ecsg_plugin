@@ -72,6 +72,7 @@ func set_handle(gizmo, index, camera, screen_pos):
 		)
 		if val != null:
 			spatial.WIDTH = val.length() * 2.0
+			spatial.property_list_changed_notify()
 
 	# height
 	if index == 1:
@@ -84,6 +85,7 @@ func set_handle(gizmo, index, camera, screen_pos):
 		)
 		if val != null:
 			spatial.HEIGHT = val.length()
+			spatial.property_list_changed_notify()
 
 	# depth
 	if index == 2:
@@ -96,6 +98,7 @@ func set_handle(gizmo, index, camera, screen_pos):
 		)
 		if val != null:
 			spatial.DEPTH = val.length()
+			spatial.property_list_changed_notify()
 
 	# steps
 	if index == 3:
@@ -108,3 +111,4 @@ func set_handle(gizmo, index, camera, screen_pos):
 		)
 		if val != null:
 			spatial.STEPS = int(val.length() * 10.0)
+			spatial.property_list_changed_notify()
