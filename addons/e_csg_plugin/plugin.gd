@@ -9,6 +9,7 @@ const ECSGTerrainGizmo = preload("res://addons/e_csg_plugin/gizmos/ecsg_terrain.
 const ECSGStairsGizmo = preload("res://addons/e_csg_plugin/gizmos/ecsg_stairs.gd")
 const ECSGRampGizmo = preload("res://addons/e_csg_plugin/gizmos/ecsg_ramp.gd")
 const ECSGArchGizmo = preload("res://addons/e_csg_plugin/gizmos/ecsg_arch.gd")
+const ECSGCylinderGizmo = preload("res://addons/e_csg_plugin/gizmos/ecsg_cylinder.gd")
 
 # UI Scenes
 const CatalogueDockScene = preload("res://addons/e_csg_plugin/interface/catalogue_dock.tscn")
@@ -20,6 +21,7 @@ var _ecsgTerrainGizmo = ECSGTerrainGizmo.new()
 var _ecsgStairsGizmo = ECSGStairsGizmo.new()
 var _ecsgRampGizmo = ECSGRampGizmo.new()
 var _ecsgArchGizmo = ECSGArchGizmo.new()
+var _ecsgCylinderGizmo = ECSGCylinderGizmo.new()
 var _catalogueDock = null
 var _confirmPrompt = null
 
@@ -39,6 +41,7 @@ func _enter_tree():
 	_ecsgStairsGizmo.set_plugin(self)
 	_ecsgRampGizmo.set_plugin(self)
 	_ecsgArchGizmo.set_plugin(self)
+	_ecsgCylinderGizmo.set_plugin(self)
 
 	add_spatial_gizmo_plugin(_ecsgConeGizmo)
 	add_spatial_gizmo_plugin(_ecsgStarGizmo)
@@ -47,6 +50,7 @@ func _enter_tree():
 	add_spatial_gizmo_plugin(_ecsgStairsGizmo)
 	add_spatial_gizmo_plugin(_ecsgRampGizmo)
 	add_spatial_gizmo_plugin(_ecsgArchGizmo)
+	add_spatial_gizmo_plugin(_ecsgCylinderGizmo)
 
 	# catalogue dock
 	_catalogueDock = CatalogueDockScene.instance()
@@ -64,6 +68,7 @@ func _exit_tree():
 	_confirmPrompt.free()
 
 	# cleanup gizmos
+	remove_spatial_gizmo_plugin(_ecsgCylinderGizmo)
 	remove_spatial_gizmo_plugin(_ecsgArchGizmo)
 	remove_spatial_gizmo_plugin(_ecsgRampGizmo)
 	remove_spatial_gizmo_plugin(_ecsgStairsGizmo)
