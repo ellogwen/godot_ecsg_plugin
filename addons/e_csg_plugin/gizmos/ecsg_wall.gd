@@ -106,7 +106,7 @@ func set_handle(gizmo, index, camera, screen_pos):
 			spatial.global_transform.origin
 		)
 		if val != null:
-			spatial.LENGTH = val.length()
+			spatial.LENGTH = translate_snapped(val.length())
 			spatial.property_list_changed_notify()
 
 	# width handler
@@ -119,7 +119,7 @@ func set_handle(gizmo, index, camera, screen_pos):
 			spatial.global_transform.origin
 		)
 		if val != null:
-			spatial.WIDTH = val.length()
+			spatial.WIDTH = translate_snapped(val.length())
 			spatial.property_list_changed_notify()
 
 	# segment height handler
@@ -132,7 +132,7 @@ func set_handle(gizmo, index, camera, screen_pos):
 			spatial.global_transform.origin
 		)
 		if val != null:
-			spatial.set_top_row_height(index - 3, val.length())
+			spatial.set_top_row_height(index - 3, translate_snapped(val.length()))
 			spatial.property_list_changed_notify()
 
 	redraw(gizmo)

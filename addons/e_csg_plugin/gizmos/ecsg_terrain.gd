@@ -45,7 +45,7 @@ func set_handle(gizmo, index, camera, screen_pos):
 		spatial.global_transform.origin
 		)
 	if val != null:
-		spatial.set_face_height(index, val.y)
+		spatial.set_face_height(index, translate_snapped(val.y))
 
 	redraw(gizmo)
 

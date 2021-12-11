@@ -74,7 +74,7 @@ func set_handle(gizmo, index, camera, screen_pos):
 			spatial.global_transform.origin
 		)
 		if val != null:
-			spatial.HEIGHT = val.length()
+			spatial.HEIGHT = translate_snapped(val.length())
 			spatial.property_list_changed_notify()
 
 	# width handle
@@ -87,7 +87,7 @@ func set_handle(gizmo, index, camera, screen_pos):
 			spatial.global_transform.origin
 		)
 		if val != null:
-			spatial.BASE_WIDTH = val.length() * 2.0
+			spatial.BASE_WIDTH = translate_snapped(val.length() * 2.0)
 			spatial.property_list_changed_notify()
 
 	# depth handle
@@ -100,7 +100,7 @@ func set_handle(gizmo, index, camera, screen_pos):
 			spatial.global_transform.origin
 		)
 		if val != null:
-			spatial.DEPTH = val.length() * 2.0
+			spatial.DEPTH = translate_snapped(val.length() * 2.0)
 			spatial.property_list_changed_notify()
 
 	# thickness handle

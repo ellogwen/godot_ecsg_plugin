@@ -33,6 +33,12 @@ func _init():
 	create_handle_material("handle_square_y", false, handle_square_y_tex)
 	create_handle_material("handle_square_z", false, handle_square_z_tex)
 
+func translate_snapped(value):
+	if Input.is_key_pressed(KEY_SHIFT):
+		# @todo: read step value from editor
+		return stepify(value, 0.1)
+	return value
+
 func get_handle_local_position(index, spatial):
 	return Vector3.ZERO
 

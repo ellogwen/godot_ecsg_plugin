@@ -57,7 +57,7 @@ func set_handle(gizmo, index, camera, screen_pos):
 			spatial.global_transform.origin
 		)
 		if val != null:
-			spatial.HEIGHT = val.length()
+			spatial.HEIGHT = translate_snapped(val.length())
 			spatial.property_list_changed_notify()
 
 	# inset
