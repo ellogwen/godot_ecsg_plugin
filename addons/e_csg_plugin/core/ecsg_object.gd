@@ -86,7 +86,7 @@ func _get(prop):
 	return null
 
 func _update_material():
-	prints("updating materials")
+	# prints("updating materials")
 	match (_ecsg_theme):
 		"Prototype":
 			match (_ecsg_prototype):

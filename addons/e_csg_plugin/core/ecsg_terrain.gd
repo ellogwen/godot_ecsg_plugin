@@ -37,7 +37,7 @@ func _ready():
 	_planeMesh = MeshCreator_Mesh_Mesh.new()
 	if (not _ecsg_terrain_geometry_storage.empty()):
 		_planeMesh.from_geometry(_ecsg_terrain_geometry_storage)
-		prints("Updated vertices from storage:", _ecsg_terrain_geometry_storage.size())
+		prints("[ECSG] Updated mesh vertices from storage:", _ecsg_terrain_geometry_storage.size())
 	_update_mesh()
 
 func set_columns(cols):

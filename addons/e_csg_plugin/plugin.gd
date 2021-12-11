@@ -82,10 +82,11 @@ func _exit_tree():
 	pass
 
 func set_state(state):
-	prints(state)
+	# prints(state)
+	pass
 
 func get_state():
-	prints("get_state")
+	# prints("get_state")
 	return { plugin = 'ecsg' }
 
 func create_and_add_ecsg_preset(preset_path):
