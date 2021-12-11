@@ -5,6 +5,7 @@ export(int, 4, 36, 2) var SEGMENTS = 8 setget set_segments
 export(float, 0.05, 128.0, 0.05) var HEIGHT = 1.0 setget set_height
 export(float, 0.05, 128.0, 0.05) var BASE_WIDTH  = 1.0 setget set_base_width
 export(float, 0.01, 1.0) var THICKNESS = 0.3 setget set_thickness
+export(Curve) var THICKNESS_CURVE = null setget set_thickness_curve
 export(float, 0.05, 32.0) var DEPTH = 0.3 setget set_depth
 export(String, "PARABOLIC") var ARCH_TYPE = "PARABOLIC" setget set_arch_type
 export(bool) var FILLED = false setget set_filled
@@ -36,6 +37,13 @@ func set_base_width(val):
 func set_thickness(val):
 	val = clamp(val, 0.01, 1.0)
 	THICKNESS = val
+	_calc_polygon()
+
+func set_thickness_curve(val):
+	THICKNESS_CURVE = val
+	if (THICKNESS_CURVE != null):
+		if not (THICKNESS_CURVE as Curve).is_connected("changed", self, "_calc_polygon"):
+			(THICKNESS_CURVE as Curve).connect("changed", self, "_calc_polygon")
 	_calc_polygon()
 
 func set_depth(val):
@@ -89,11 +97,16 @@ func _parabolic_arch_points() -> PoolVector2Array:
 	# inner parabola
 	if not FILLED:
 		for i in range((even_segs / 2), -(even_segs / 2) - 1, -1):
-			var height = (HEIGHT * 2) - (THICKNESS * 0.5)
-			var width = BASE_WIDTH - (THICKNESS * 0.5)
+			var thickness = THICKNESS
+			if (THICKNESS_CURVE != null):
+				var offset = abs(((1.0 / even_segs) * i))
+				thickness = clamp((THICKNESS_CURVE as Curve).interpolate(offset), 0.01, 0.99)
+
+			var height = (HEIGHT * 2) - (thickness * 0.5)
+			var width = BASE_WIDTH - (thickness * 0.5)
 			var x = ((1.0 / even_segs) * i)
 			var y = height * (a * pow((x - h), 2) + k)
-			var vec = Vector2(x * width, y + (THICKNESS * 0.5) * 0.5)
+			var vec = Vector2(x * width, y + (thickness * 0.5) * 0.5)
 			points.push_back(vec)
 
 	return points
